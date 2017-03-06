@@ -1,0 +1,14 @@
+" Set font and color scheme
+set guifont=Consolas:h14
+color evening
+
+" Hide menu and tool bars[1]
+set guioptions -=m 
+set guioptions -=T
+
+" Start maximized[2]. Simulates Win+ArrowUp. Use ~x on an English Windows version or ~n for French.
+au GUIEnter * simalt ~x
+
+" [1]: http://stackoverflow.com/questions/13525518/how-to-hide-the-menu-tool-bar-of-gvim
+" [2]: http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size
+
