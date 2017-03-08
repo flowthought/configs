@@ -1,6 +1,6 @@
 " Set font and color scheme
 set guifont=Consolas:h14
-color evening
+color koehler
 
 " Hide menu and tool bars[1]
 set guioptions -=m 
