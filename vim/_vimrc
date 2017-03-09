@@ -1,19 +1,5 @@
-" Set shorter timeout between keysequences (down from 1000ms)
-set timeoutlen=300
-
 " Remap jk to ESC
 inoremap jk <ESC>
-
-
-filetype plugin indent on
-syntax on
-set encoding=utf-8
-
-" To use system clipboard. Use unnamedplus in Linux
-set clipboard=unnamed 
-
-" Show line numbers
-set number
 
 " Vim-Plug(junegunn/vim-plug). Run the following on windows. Not checking this in because it needs to be updated.
 " md ~\vimfiles\autoload
@@ -31,6 +17,19 @@ call plug#end()
 
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
+
+filetype plugin indent on
+syntax on
+
+" Set shorter timeout between keysequences (down from 1000ms)
+set timeoutlen=500
+set encoding=utf-8
+
+" To use system clipboard. Use unnamedplus in Linux
+set clipboard=unnamed 
+
+" Show line numbers
+set number
 
 " Backspace through everything
 set backspace=indent,eol,start
@@ -55,6 +54,13 @@ set tabpagemax=25
 set ignorecase
 set smartcase
 
+" Allow switching buffers before confirmation, but confirm without quitting
+set hidden
+set confirm
+
+" Show line/column information
+set ruler
+
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
 
@@ -68,6 +74,11 @@ nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
+nnoremap <C-t> :tabnew %<CR>
+nnoremap <C-w> :tabclose<CR>
+
+" File management
+nnoremap <leader>w :w<CR>
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :norm.<CR>
