@@ -74,10 +74,12 @@ nnoremap <leader>vl :so $MYVIMRC<CR>
 nnoremap <leader>1 :only<CR>
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
+nnoremap <leader>bd :bd<CR>
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
 nnoremap <leader>tn :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>to :tabnew 
 
 " File management
 nnoremap <leader>w :w<CR>

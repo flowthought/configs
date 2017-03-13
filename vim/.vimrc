@@ -65,15 +65,19 @@ let mapleader = "\<Space>"
 " Switch between header/source (only cpp for now)[3]
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
+nnoremap <leader>vv :e $MYVIMRC<CR>
+nnoremap <leader>vl :so $MYVIMRC<CR>
 
 " Window/tab management
 nnoremap <leader>1 :only<CR>
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
+nnoremap <leader>bd :bd<CR>
 " nnoremap <C-Tab> gt   -- doesn't seem to work in linux
 " nnoremap <C-S-Tab> gT -- investigate and remove if unneeded
 nnoremap <leader>tn :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>to :tabnew 
 
 " File management
 nnoremap <leader>w :w<CR>

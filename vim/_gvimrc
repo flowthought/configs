@@ -1,5 +1,5 @@
 " Set font and color scheme
-set guifont=Consolas:h14
+set guifont=Consolas:h13
 color koehler
 
 " Hide menu and tool bars[1]
