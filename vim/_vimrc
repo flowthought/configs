@@ -12,6 +12,9 @@ call plug#begin('~/_vim/plugged')
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
 " Initialize plugin system
 call plug#end()
 
@@ -20,9 +23,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 filetype plugin indent on
 syntax on
-
-" Set shorter timeout between keysequences (down from 1000ms)
-set timeoutlen=500
 set encoding=utf-8
 
 " To use system clipboard. Use unnamedplus in Linux
@@ -30,6 +30,9 @@ set clipboard=unnamed
 
 " Show line numbers
 set number
+
+" Set text width for auto format
+set textwidth=80
 
 " Backspace through everything
 set backspace=indent,eol,start
