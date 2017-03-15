@@ -5,10 +5,19 @@ inoremap jk <ESC>
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/_vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Solarized
+Plug 'altercation/vim-colors-solarized'
+
+" Monokai
+Plug 'sickill/vim-monokai'
+
+" Fugitive
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
@@ -16,12 +25,13 @@ call plug#end()
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
+colorscheme monokai
 filetype plugin indent on
 syntax on
-
-" Set shorter timeout between keysequences (down from 1000ms)
-set timeoutlen=500
 set encoding=utf-8
+
+" Status line customizations
+set laststatus=2
 
 " To use system clipboard. Make sure vim is compiled with +clipboard
 set clipboard=unnamedplus
@@ -81,6 +91,7 @@ nnoremap <leader>to :tabnew
 
 " File management
 nnoremap <leader>w :w<CR>
+cmap w!! !sudo tee %
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :norm.<CR>
