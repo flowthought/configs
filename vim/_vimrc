@@ -12,8 +12,14 @@ call plug#begin('~/_vim/plugged')
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+" Solarized
+Plug 'altercation/vim-colors-solarized'
+
 " Fugitive
 Plug 'tpope/vim-fugitive'
+
+" Monokai
+Plug 'sickill/vim-monokai'
 
 " Initialize plugin system
 call plug#end()
@@ -32,7 +38,7 @@ set clipboard=unnamed
 set number
 
 " Set text width for auto format
-set textwidth=80
+set textwidth=120
 
 " Backspace through everything
 set backspace=indent,eol,start
@@ -63,6 +69,10 @@ set confirm
 
 " Show line/column information
 set ruler
+
+" More natural window splits
+set splitbelow
+set splitright
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
