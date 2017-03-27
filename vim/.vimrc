@@ -76,6 +76,10 @@ set ruler
 set splitbelow
 set splitright
 
+" Turn on wildmenu for tab completion in Ex commands
+set wildmenu
+set wildmode=full
+
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
 
