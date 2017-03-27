@@ -1,10 +1,11 @@
 
 ## (V)iM Loving It!
+Practical Vim by Drew Neil is a great comprehensive source for most operations. Apart from this, the following is a list of targeted resources for solving specific problems.
 
 - [An excellent primer][1] for understanding the basics of ViM and creating sentences using its grammar
 - [VimScript][2]
 - [Files and buffers][3]
-- [System][4] [clipboard interaction] [5]
+- [System][4] [clipboard interaction][5]
 - [Cheat sheet][6]
 - [VsVim][7]
 - [VimAwesome][8]
