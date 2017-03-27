@@ -29,6 +29,7 @@ colorscheme monokai
 filetype plugin indent on
 syntax on
 set encoding=utf-8
+set textwidth=80
 
 " Status line customizations
 set laststatus=2
@@ -53,6 +54,8 @@ set expandtab
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
 set hlsearch
+" Incremental search
+set incsearch
 
 " Set max tab pages (up from 10)
 set tabpagemax=25
@@ -76,21 +79,22 @@ set splitright
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
 
-" Switch between header/source (only cpp for now)[3]
+" Targeted edits [3]
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
+nnoremap <leader>f :find 
 
-" Buffer management
+" Buffer/Window management
 nnoremap <leader>1 :only<CR>
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
 nnoremap <leader>d :bd<CR>
-nnoremap <leader><S-d> :bd!<CR>
-" nnoremap <C-Tab> gt   -- doesn't seem to work in linux
-" nnoremap <C-S-Tab> gT -- investigate and remove if unneeded
+nnoremap <leader>bd :bd!<CR>
+nnoremap <C-Tab> gt
+" nnoremap <C-S-Tab> gT -- doesn't seem to work in mac
 nnoremap <leader>tn :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew 
@@ -100,7 +104,12 @@ nnoremap <leader>w :w<CR>
 cmap w!! !sudo tee %
 
 " Use the '.' command as a verb in visual mode
-vnoremap . :norm.<CR>
+vnoremap . :'<,'>norm.<CR>
+
+" Git (fugitive) quick shortcuts
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Gcommit 
 
 "" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 "" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
