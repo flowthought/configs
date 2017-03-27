@@ -69,6 +69,10 @@ set confirm
 " Show line/column information
 set ruler
 
+" More natural window splits
+set splitbelow
+set splitright
+
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
 
@@ -79,7 +83,7 @@ nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
 
-" Window/tab management
+" Buffer management
 nnoremap <leader>1 :only<CR>
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
