@@ -19,17 +19,33 @@ Plug 'sickill/vim-monokai'
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Initialize plugin system
 call plug#end()
 
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Customized grep command to bypass output window and show quickfix list
+command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
+
 colorscheme monokai
 filetype plugin indent on
 syntax on
 set encoding=utf-8
-set textwidth=80
 
 " Status line customizations
 set laststatus=2
@@ -89,7 +105,10 @@ nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
-nnoremap <leader>f :find 
+nnoremap <leader>pf :find 
+nnoremap <leader>pp :CtrlP 
+nnoremap <leader>ps :set path=
+nnoremap <leader>pa :set path+=
 
 " Buffer/Window management
 nnoremap <leader>1 :only<CR>
@@ -114,6 +133,8 @@ vnoremap . :'<,'>norm.<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit 
+
+source ~/.mvimrc
 
 "" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 "" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
