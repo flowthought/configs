@@ -42,6 +42,9 @@ endif
 " Customized grep command to bypass output window and show quickfix list
 command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 
+" Create mapping for '%%' to be expanded to current file's working directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
 colorscheme monokai
 filetype plugin indent on
 syntax on

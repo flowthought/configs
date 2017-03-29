@@ -1,11 +1,10 @@
 
 ## (V)iM Loving It!
-Practical Vim by Drew Neil is a great comprehensive source for most operations. Apart from this, the following is a list of targeted resources for solving specific problems.
 
 - [An excellent primer][1] for understanding the basics of ViM and creating sentences using its grammar
 - [VimScript][2]
 - [Files and buffers][3]
-- [System][4] [clipboard interaction][5]
+- [System][4] [clipboard interaction] [5]
 - [Cheat sheet][6]
 - [VsVim][7]
 - [VimAwesome][8]
@@ -19,7 +18,8 @@ Practical Vim by Drew Neil is a great comprehensive source for most operations. 
 - [Searching within files][17]
 - [Fuzzy Search][19]: ctrlp and ag
 - [Vimdiff][20] within editor
-- [Commentary][21] provides a comment operator
+- [The Silver Searcher][21] integration
+- [Commentary][22] provides a comment operator
 
 C-x and C-a can subtract/add numbers
 
@@ -28,6 +28,8 @@ C-x and C-a can subtract/add numbers
 :source ~/mysession.vim OR
 $ vim -S ~/mysession.vim (at startup)
 
+In your sessionwise .vim files, set specific options like textwidth, path, tags, ctrlp working dir...
+
 [Advanced][11]
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
@@ -35,7 +37,7 @@ $ vim -S ~/mysession.vim (at startup)
 [3]: http://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim
 [4]: http://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
 [5]: http://stackoverflow.com/questions/3961859/how-to-copy-to-clipboard-in-vim
-[6]: https://vim.rtorr.com/ 
+[6]: https://vim.rtorr.com/
 [7]: https://github.com/jaredpar/VsVim/wiki/faq
 [8]: http://vimawesome.com
 [9]: https://github.com/scrooloose/nerdtree
@@ -49,5 +51,6 @@ $ vim -S ~/mysession.vim (at startup)
 [17]: http://vim.wikia.com/wiki/Find_in_files_within_Vim
 [18]: http://vim.wikia.com/wiki/Browsing_programs_with_tags
 [19]: http://stackoverflow.com/questions/2372307/opening-files-in-vim-using-fuzzy-search
-[20]: http://stackoverflow.com/questions/9529934/how-to-use-vimdiff-in-vim-command-mode 
-[21]: https://github.com/tpope/vim-commentary
+[20]: http://stackoverflow.com/questions/9529934/how-to-use-vimdiff-in-vim-command-mode
+[21]: https://robots.thoughtbot.com/faster-grepping-in-vim
+[22]: https://github.com/tpope/vim-commentary
