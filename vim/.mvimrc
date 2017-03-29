@@ -1,5 +1,6 @@
-" Options in MacVim different from Linux .vimrc
+" Platform specific options
 set clipboard=unnamed
+set textwidth=80 
 
 " Allow using find command in common places
 set path=~/,~/repos/**,~/Documents/code
@@ -7,5 +8,11 @@ set path=~/,~/repos/**,~/Documents/code
 " CtrlP options. Run :h CtrlP for configuration help
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP ~/repos'
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
 
+" More relevant config options (commented by default)
+" g:ctrlp_lazy_update
+" let g:ctrlp_types = ['buf', 'mru']
+" let g:ctrlp_default_input = 1
+" let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript', 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
+" Look up :h ctrlp-commands for a list of alternative starting commands

@@ -41,6 +41,8 @@ endif
 
 " Customized grep command to bypass output window and show quickfix list
 command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
+" Search for word under cursor. Use appropriate shortcut
+" nnoremap <C-s> :execute 'Lookup '.expand('<cword>').' '.expand('%:h')<CR>
 
 " Create mapping for '%%' to be expanded to current file's working directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -108,8 +110,9 @@ nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
-nnoremap <leader>pf :find 
-nnoremap <leader>pp :CtrlP 
+nnoremap <leader>f :find 
+nnoremap <leader>pf :CtrlP 
+nnoremap <leader>pb :CtrlPBuffer<CR>
 nnoremap <leader>ps :set path=
 nnoremap <leader>pa :set path+=
 
