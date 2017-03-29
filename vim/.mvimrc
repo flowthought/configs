@@ -1,0 +1,11 @@
+" Options in MacVim different from Linux .vimrc
+set clipboard=unnamed
+
+" Allow using find command in common places
+set path=~/,~/repos/**,~/Documents/code
+
+" CtrlP options. Run :h CtrlP for configuration help
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP ~/repos'
+let g:ctrlp_by_filename = 1
+
