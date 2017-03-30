@@ -19,9 +19,6 @@ Plug 'sickill/vim-monokai'
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
-" CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Initialize plugin system
 call plug#end()
 
@@ -31,12 +28,6 @@ map <C-n> :NERDTreeToggle<CR>
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 " Customized grep command to bypass output window and show quickfix list
@@ -97,6 +88,9 @@ set ruler
 set splitbelow
 set splitright
 
+" Set the working directory to wherever the open file lives
+set autochdir
+
 " Turn on wildmenu for tab completion in Ex commands
 set wildmenu
 set wildmode=full
@@ -120,6 +114,8 @@ nnoremap <leader>pa :set path+=
 nnoremap <leader>1 :only<CR>
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
+nnoremap <leader>] :bn<CR>
+nnoremap <leader>[ :bp<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>bd :bd!<CR>
 nnoremap <C-Tab> gt
