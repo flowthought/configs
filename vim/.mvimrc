@@ -3,4 +3,4 @@ set clipboard=unnamed
 set textwidth=80 
 
 " Allow using find command in common places
-set path=~/,~/repos/**,~/Documents/code
+set path=~/,~/repos/**

@@ -19,6 +19,9 @@ Plug 'sickill/vim-monokai'
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
+" Toml file syntax
+Plug 'cespare/vim-toml'
+
 " Initialize plugin system
 call plug#end()
 
@@ -32,8 +35,6 @@ endif
 
 " Customized grep command to bypass output window and show quickfix list
 command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
-" Search for word under cursor. Use appropriate shortcut
-" nnoremap <C-s> :execute 'Lookup '.expand('<cword>').' '.expand('%:h')<CR>
 
 " Create mapping for '%%' to be expanded to current file's working directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -94,6 +95,9 @@ set autochdir
 " Turn on wildmenu for tab completion in Ex commands
 set wildmenu
 set wildmode=full
+" Don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
+" set wildignore+=node_modules/*,bower_components/*
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
@@ -102,11 +106,11 @@ let mapleader = "\<Space>"
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
+nnoremap <leader>od :windo diffthis<CR>
+nnoremap <leader>oD :windo diffoff<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
 nnoremap <leader>f :find 
-nnoremap <leader>pf :CtrlP 
-nnoremap <leader>pb :CtrlPBuffer<CR>
 nnoremap <leader>ps :set path=
 nnoremap <leader>pa :set path+=
 
@@ -127,6 +131,10 @@ nnoremap <leader>to :tabnew
 " File management
 nnoremap <leader>w :w<CR>
 cmap w!! !sudo tee %
+
+" Search for word under cursor. Use appropriate shortcut
+nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.expand('%:h')
+nnoremap <leader>ll :Lookup 
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>norm.<CR>

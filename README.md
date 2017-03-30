@@ -20,6 +20,7 @@
 - [Vimdiff][20] within editor
 - [The Silver Searcher][21] integration
 - [Commentary][22] provides a comment operator
+- [Native Fuzzy Search][23]
 
 C-x and C-a can subtract/add numbers
 
@@ -54,3 +55,4 @@ In your sessionwise .vim files, set specific options like textwidth, path, tags,
 [20]: http://stackoverflow.com/questions/9529934/how-to-use-vimdiff-in-vim-command-mode
 [21]: https://robots.thoughtbot.com/faster-grepping-in-vim
 [22]: https://github.com/tpope/vim-commentary
+[23]: https://gist.github.com/csswizardry/9a33342dace4786a9fee35c73fa5deeb
