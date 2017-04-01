@@ -15,12 +15,17 @@ Plug 'altercation/vim-colors-solarized'
 
 " Monokai
 Plug 'sickill/vim-monokai'
+Plug 'tomasr/molokai'
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
 " Toml file syntax
 Plug 'cespare/vim-toml'
+
+" Cool status bar plugin 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -39,7 +44,7 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's working directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-colorscheme monokai
+colorscheme molokai
 filetype plugin indent on
 syntax on
 set encoding=utf-8
@@ -90,7 +95,7 @@ set splitbelow
 set splitright
 
 " Set the working directory to wherever the open file lives
-set autochdir
+" set autochdir
 
 " Turn on wildmenu for tab completion in Ex commands
 set wildmenu
@@ -124,7 +129,7 @@ nnoremap <leader>d :bd<CR>
 nnoremap <leader>bd :bd!<CR>
 nnoremap <C-Tab> gt
 " nnoremap <C-S-Tab> gT -- doesn't seem to work in mac
-nnoremap <leader>tn :tabnew %<CR>
+nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew 
 
