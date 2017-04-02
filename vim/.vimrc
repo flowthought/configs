@@ -1,29 +1,26 @@
 " Remap jk to ESC
 inoremap jk <ESC>
 
-" Vim-Plug(junegunn/vim-plug). Run the following on linux. Not checking this in because it needs to be updated.
+" Vim-Plug(junegunn/vim-plug): Run the following on linux. Not checking this in because it needs to be updated.
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Solarized
-Plug 'altercation/vim-colors-solarized'
-
-" Monokai
+" Themes
 Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
 
-" Fugitive
+" Fugitive for git
 Plug 'tpope/vim-fugitive'
 
 " Toml file syntax
 Plug 'cespare/vim-toml'
 
-" Cool status bar plugin 
+" Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -76,14 +73,14 @@ set hlsearch
 set incsearch
 
 " Set max tab pages (up from 10)
-set tabpagemax=25
+set tabpagemax=15
 
 " Set smart case search[2]. Will search insensitive unless there is a capital
 " letter in the search string
 set ignorecase
 set smartcase
 
-" Allow switching buffers before confirmation, but confirm without quitting
+" Allow switching from modified buffers, but confirm on buffer delete
 set hidden
 set confirm
 
@@ -108,30 +105,37 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
 let mapleader = "\<Space>"
 
 " Targeted edits [3]
+nnoremap <leader>e :e<space>
+nnoremap <leader>f :find<space>
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
-nnoremap <leader>od :windo diffthis<CR>
-nnoremap <leader>oD :windo diffoff<CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>vl :so $MYVIMRC<CR>
-nnoremap <leader>f :find 
 nnoremap <leader>ps :set path=
 nnoremap <leader>pa :set path+=
 
-" Buffer/Window management
-nnoremap <leader>1 :only<CR>
-nnoremap <leader>2 <C-w>v
-nnoremap <leader>3 <C-w>s
+" Diffs
+diffopt+=vertical
+nnoremap <leader>od :windo diffthis<CR>
+nnoremap <leader>oD :windo diffoff<CR>
+
+" Buffer management
+nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>bd :bd!<CR>
+nnoremap <leader>! :bd!<CR>
+
+" Tab management
 nnoremap <C-Tab> gt
 " nnoremap <C-S-Tab> gT -- doesn't seem to work in mac
 nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
-nnoremap <leader>to :tabnew 
+nnoremap <leader>to :tabnew<space>
+" Enable tabline for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " File management
 nnoremap <leader>w :w<CR>
@@ -139,15 +143,15 @@ cmap w!! !sudo tee %
 
 " Search for word under cursor. Use appropriate shortcut
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.expand('%:h')
-nnoremap <leader>ll :Lookup 
+nnoremap <leader>ll :Lookup<space>
 
 " Use the '.' command as a verb in visual mode
-vnoremap . :'<,'>norm.<CR>
+vnoremap . :'<,'>normal.<CR>
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gc :Gcommit 
+nnoremap <leader>gc :Gcommit<space>
 
 source ~/.mvimrc
 
