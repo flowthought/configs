@@ -2,7 +2,6 @@
 set guifont=Consolas:h13
 
 let g:solarized_contrast="normal"
-colorscheme solarized 
 
 " Hide menu and tool bars[1]. See :help guioptions
 set guioptions -=m 
