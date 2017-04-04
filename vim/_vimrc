@@ -17,8 +17,9 @@ Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 
-" Fugitive for git
+" Git Plugins
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Toml file syntax
 Plug 'cespare/vim-toml'
@@ -53,7 +54,7 @@ set encoding=utf-8
 set laststatus=2
 
 " To use system clipboard. Use unnamedplus in Linux
-set clipboard=unnamed 
+set clipboard=unnamed
 
 " Show line numbers
 set number
@@ -110,6 +111,7 @@ let mapleader = "\<Space>"
 " Targeted edits [3]
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :find<space>
+nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
@@ -155,6 +157,8 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 
+" Load windows machine specific options
+source ~/_wvimrc
 
 "" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 "" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
