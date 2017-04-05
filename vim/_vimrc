@@ -115,15 +115,19 @@ nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
+nnoremap <leader>on :new <bar> only <CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
-nnoremap <leader>vl :so $MYVIMRC<CR>
-nnoremap <leader>ps :set path=
-nnoremap <leader>pa :set path+=
+nnoremap <leader>vl :source $MYVIMRC<CR>
 
 " Diffs
 set diffopt+=vertical
 nnoremap <leader>od :windo diffthis<CR>
 nnoremap <leader>oD :windo diffoff<CR>
+
+" Window management
+nnoremap <leader>1 <C-w>o
+nnoremap <leader>2 <C-w>v
+nnoremap <leader>3 <C-w>s
 
 " Buffer management
 nnoremap <leader>b :b<space>
@@ -139,14 +143,14 @@ nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
 " Enable tabline for vim-airline
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " File management
 nnoremap <leader>w :w<CR>
 
 " Search for word under cursor. Use appropriate shortcut
-nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.expand('%:h')
+nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
 nnoremap <leader>ll :Lookup<space>
 
 " Use the '.' command as a verb in visual mode
