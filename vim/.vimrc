@@ -10,17 +10,21 @@ call plug#begin('~/.vim/plugged')
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Solarized
+" Themes
+Plug 'sickill/vim-monokai'
+Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 
-" Monokai
-Plug 'sickill/vim-monokai'
-
-" Fugitive
+" Git Plugins
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Toml file syntax
 Plug 'cespare/vim-toml'
+
+" Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
@@ -39,7 +43,7 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's working directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-colorscheme monokai
+colorscheme molokai
 filetype plugin indent on
 syntax on
 set encoding=utf-8
@@ -71,14 +75,14 @@ set hlsearch
 set incsearch
 
 " Set max tab pages (up from 10)
-set tabpagemax=25
+set tabpagemax=15
 
 " Set smart case search[2]. Will search insensitive unless there is a capital
 " letter in the search string
 set ignorecase
 set smartcase
 
-" Allow switching buffers before confirmation, but confirm without quitting
+" Allow switching from modified buffers, but confirm on buffer delete
 set hidden
 set confirm
 
@@ -90,7 +94,7 @@ set splitbelow
 set splitright
 
 " Set the working directory to wherever the open file lives
-set autochdir
+" set autochdir
 
 " Turn on wildmenu for tab completion in Ex commands
 set wildmenu
@@ -103,48 +107,61 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
 let mapleader = "\<Space>"
 
 " Targeted edits [3]
+nnoremap <leader>e :e<space>
+nnoremap <leader>f :find<space>
+nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
 nnoremap <leader>oo :e! %<CR>
+nnoremap <leader>on :new <bar> only <CR>
+nnoremap <leader>vv :e $MYVIMRC<CR>
+nnoremap <leader>vl :source $MYVIMRC<CR>
+
+" Diffs
+set diffopt+=vertical
 nnoremap <leader>od :windo diffthis<CR>
 nnoremap <leader>oD :windo diffoff<CR>
-nnoremap <leader>vv :e $MYVIMRC<CR>
-nnoremap <leader>vl :so $MYVIMRC<CR>
-nnoremap <leader>f :find 
-nnoremap <leader>ps :set path=
-nnoremap <leader>pa :set path+=
 
-" Buffer/Window management
-nnoremap <leader>1 :only<CR>
+" Window management
+nnoremap <leader>1 <C-w>o
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
+
+" Buffer management
+nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
 nnoremap <leader>d :bd<CR>
-nnoremap <leader>bd :bd!<CR>
+nnoremap <leader>! :bd!<CR>
+
+" Tab management
 nnoremap <C-Tab> gt
 " nnoremap <C-S-Tab> gT -- doesn't seem to work in mac
-nnoremap <leader>tn :tabnew %<CR>
+nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
-nnoremap <leader>to :tabnew 
+nnoremap <leader>to :tabnew<space>
+" Enable tabline for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " File management
 nnoremap <leader>w :w<CR>
-cmap w!! !sudo tee %
+" cmap w!! !sudo tee %
 
 " Search for word under cursor. Use appropriate shortcut
-nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.expand('%:h')
-nnoremap <leader>ll :Lookup 
+nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
+nnoremap <leader>ll :Lookup<space>
 
 " Use the '.' command as a verb in visual mode
-vnoremap . :'<,'>norm.<CR>
+vnoremap . :'<,'>normal.<CR>
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gc :Gcommit 
+nnoremap <leader>gc :Gcommit<space>
 
-source ~/.mvimrc
+" Load machine specific options
+source ~/.lvimrc
 
 "" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 "" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
