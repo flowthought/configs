@@ -1,11 +1,12 @@
-
-## (V)iM Loving It!
+# (V)iM Loving It!
+The most fun I've had with a text editor.
 
 - [An excellent primer][1] for understanding the basics of ViM and creating sentences using its grammar
 - [VimScript][2]
 - [Files and buffers][3]
-- [System][4] [clipboard interaction] [5]
+- [System][4] [clipboard interaction][5]
 - [Cheat sheet][6]
+- [Advanced cheat sheet][11]
 - [VsVim][7]
 - [VimAwesome][8]
 - [VimPlug][9]
@@ -22,6 +23,8 @@
 - [Commentary][22] provides a comment operator
 - [Native Fuzzy Search][23]
 
+## Misc Pointers
+
 C-x and C-a can subtract/add numbers
 
 ### Multiple sessions:
@@ -29,9 +32,8 @@ C-x and C-a can subtract/add numbers
 :source ~/mysession.vim OR
 $ vim -S ~/mysession.vim (at startup)
 
-In your sessionwise .vim files, set specific options like textwidth, path, tags, ctrlp working dir...
-
-[Advanced][11]
+In your machine specific .xvimrc (where x <- {l, w, m}) files, set specific options like textwidth, path, tags, ctrlp
+working dir...
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
 [2]: http://learnvimscriptthehardway.stevelosh.com/
