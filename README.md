@@ -22,6 +22,7 @@ The most fun I've had with a text editor.
 - [The Silver Searcher][21] integration
 - [Commentary][22] provides a comment operator
 - [Native Fuzzy Search][23]
+- [Airline Font][24] [problems][25]
 
 ## Misc Pointers
 
@@ -33,7 +34,7 @@ C-x and C-a can subtract/add numbers
 $ vim -S ~/mysession.vim (at startup)
 
 In your machine specific .xvimrc (where x <- {l, w, m}) files, set specific options like textwidth, path, tags, ctrlp
-working dir...
+working directory, etc.
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
 [2]: http://learnvimscriptthehardway.stevelosh.com/
@@ -58,3 +59,5 @@ working dir...
 [21]: https://robots.thoughtbot.com/faster-grepping-in-vim
 [22]: https://github.com/tpope/vim-commentary
 [23]: https://gist.github.com/csswizardry/9a33342dace4786a9fee35c73fa5deeb
+[24]: http://vi.stackexchange.com/questions/3359/how-to-fix-status-bar-symbols-in-airline-plugin
+[25]: https://github.com/vim-airline/vim-airline/wiki/FAQ
