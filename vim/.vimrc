@@ -29,6 +29,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
+" When vim-airline is enabled, it shows the mode in the status bar. Disabling default mode indicator in this case
+set noshowmode
+
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
@@ -100,7 +103,7 @@ set splitright
 set wildmenu
 set wildmode=full
 " Don't offer to open certain files/directories
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " set wildignore+=node_modules/*,bower_components/*
 
 " Frequent personal shortcuts (mostly leader based)
@@ -161,7 +164,9 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 
 " Load machine specific options
-source ~/.lvimrc
+if !empty(glob("~/.lvimrc"))
+    source ~/.lvimrc
+endif
 
 "" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 "" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
