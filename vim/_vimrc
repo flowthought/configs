@@ -164,6 +164,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 
+" Filetype preferences
+autocmd FileType markdown setlocal textwidth=80
+
 " Load windows machine specific options
 source ~/_wvimrc
 
