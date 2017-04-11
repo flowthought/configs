@@ -145,9 +145,11 @@ nnoremap <C-S-Tab> gT
 nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
+
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " File management
 nnoremap <leader>w :w<CR>
@@ -170,6 +172,6 @@ autocmd FileType markdown setlocal textwidth=80
 " Load windows machine specific options
 source ~/_wvimrc
 
-"" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
-"" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
-"" [3]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
+" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
+" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
+" [3]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
