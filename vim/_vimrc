@@ -136,7 +136,8 @@ nnoremap <leader>3 <C-w>s
 nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
-nnoremap <leader>d :bp|bd #<CR>
+" nnoremap <leader>d :bp|bd #<CR>
+nnoremap <leader>d :bd<CR>
 
 " Tab management
 nnoremap <C-Tab> gt
@@ -156,6 +157,8 @@ nnoremap <leader>w :w<CR>
 " Search for word under cursor. Use appropriate shortcut
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
 nnoremap <leader>ll :Lookup<space>
+nnoremap <F3> :cp<CR>
+nnoremap <F4> :cn<CR> 
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>normal.<CR>
