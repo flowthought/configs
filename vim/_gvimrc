@@ -16,6 +16,7 @@ au GUIEnter * simalt ~x
 " Fullscreen shortcut. Download zip from https://github.com/derekmcloughlin/gvimfullscreen_win32/
 " and extract to directory containing gvim.exe first
 nnoremap <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+inoremap <F11> :call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 
 " [1]: http://stackoverflow.com/questions/13525518/how-to-hide-the-menu-tool-bar-of-gvim
 " [2]: http://vim.wikia.com/wiki/Maximize_or_set_initial_window_size

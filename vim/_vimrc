@@ -136,8 +136,7 @@ nnoremap <leader>3 <C-w>s
 nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
-nnoremap <leader>d :bd<CR>
-nnoremap <leader>! :bd!<CR>
+nnoremap <leader>d :bp|bd #<CR>
 
 " Tab management
 nnoremap <C-Tab> gt
