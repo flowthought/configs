@@ -15,6 +15,9 @@ Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 
+" You'll have a hard time
+Plug 'takac/vim-hardtime'
+
 " Git Plugins
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -143,9 +146,6 @@ nnoremap <C-Tab> gt
 nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
-" Enable tabline for vim-airline
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " File management
 nnoremap <leader>w :w<CR>
@@ -154,6 +154,8 @@ nnoremap <leader>w :w<CR>
 " Search for word under cursor. Use appropriate shortcut
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
 nnoremap <leader>ll :Lookup<space>
+nnoremap <F3> :cp<CR>
+nnoremap <F4> :cn<CR>
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>normal.<CR>
@@ -162,6 +164,13 @@ vnoremap . :'<,'>normal.<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
+
+" Plugin specific options
+" Enable tabline for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:hardtime_default_on = 1
 
 " Load machine specific options
 if !empty(glob("~/.lvimrc"))

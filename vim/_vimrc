@@ -158,7 +158,7 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
 nnoremap <leader>ll :Lookup<space>
 nnoremap <F3> :cp<CR>
-nnoremap <F4> :cn<CR> 
+nnoremap <F4> :cn<CR>
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>normal.<CR>
@@ -172,7 +172,9 @@ nnoremap <leader>gc :Gcommit<space>
 autocmd FileType markdown setlocal textwidth=80
 
 " Load windows machine specific options
-source ~/_wvimrc
+if !empty(glob("~/_wvimrc"))
+    source ~/_wvimrc
+endif
 
 " [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 " [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
