@@ -15,15 +15,18 @@ Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 
-" You'll have a hard time
-Plug 'takac/vim-hardtime'
-
 " Git Plugins
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Toml file syntax
 Plug 'cespare/vim-toml'
+
+" Hardtime
+Plug 'takac/vim-hardtime'
+
+" Commentary
+Plug 'tpope/vim-commentary'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
@@ -76,7 +79,7 @@ set expandtab
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
-set hlsearch
+" set hlsearch
 " Incremental search
 set incsearch
 
@@ -108,6 +111,9 @@ set wildmode=full
 " Don't offer to open certain files/directories
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " set wildignore+=node_modules/*,bower_components/*
+
+" For gitgutter to update quicker
+set updatetime=750
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
@@ -165,7 +171,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 
-" Plugin specific options
+" Filetype preferences
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
