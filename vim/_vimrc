@@ -24,6 +24,12 @@ Plug 'airblade/vim-gitgutter'
 " Toml file syntax
 Plug 'cespare/vim-toml'
 
+" Hardtime
+Plug 'takac/vim-hardtime'
+
+" Commentary
+Plug 'tpope/vim-commentary'
+
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -75,7 +81,7 @@ set expandtab
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
-set hlsearch
+" set hlsearch
 " Incremental search
 set incsearch
 
@@ -107,6 +113,9 @@ set wildmode=full
 " Don't offer to open certain files/directories
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
 " set wildignore+=node_modules/*,bower_components/*
+
+" For gitgutter to update quicker
+set updatetime=750
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
@@ -146,11 +155,6 @@ nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
 
-" Enable tabline for vim-airline
-let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
 " File management
 nnoremap <leader>w :w<CR>
 
@@ -170,6 +174,13 @@ nnoremap <leader>gc :Gcommit<space>
 
 " Filetype preferences
 autocmd FileType markdown setlocal textwidth=80
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
+" Enable tabline for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:hardtime_default_on = 1
 
 " Load windows machine specific options
 if !empty(glob("~/_wvimrc"))
