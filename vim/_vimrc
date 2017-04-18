@@ -173,7 +173,7 @@ nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 
 " Filetype preferences
-autocmd FileType markdown setlocal textwidth=80
+autocmd FileType markdown,python setlocal textwidth=80
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 " Enable tabline for vim-airline

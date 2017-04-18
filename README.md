@@ -23,7 +23,7 @@ The most fun I've had with a text editor.
 - [Commentary][22] provides a comment operator
 - [Native Fuzzy Search][23]
 - [Airline Font][24] [problems][25]
-
+- [The Power of G][26]
 ## Misc Pointers
 
 C-x and C-a can subtract/add numbers
@@ -61,3 +61,4 @@ working directory, etc.
 [23]: https://gist.github.com/csswizardry/9a33342dace4786a9fee35c73fa5deeb
 [24]: http://vi.stackexchange.com/questions/3359/how-to-fix-status-bar-symbols-in-airline-plugin
 [25]: https://github.com/vim-airline/vim-airline/wiki/FAQ
+[26]: http://vim.wikia.com/wiki/Power_of_g
