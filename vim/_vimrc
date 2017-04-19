@@ -30,6 +30,9 @@ Plug 'takac/vim-hardtime'
 " Commentary
 Plug 'tpope/vim-commentary'
 
+" Surround
+Plug 'tpope/vim-surround'
+
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -81,7 +84,7 @@ set expandtab
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
-" set hlsearch
+nnoremap <F2> :set hlsearch!<CR>
 " Incremental search
 set incsearch
 
@@ -180,7 +183,8 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:hardtime_default_on = 1
+let g:airline_powerline_fonts = 1
+" let g:hardtime_default_on = 0
 
 " Load windows machine specific options
 if !empty(glob("~/_wvimrc"))
