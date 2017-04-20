@@ -46,17 +46,6 @@ set noshowmode
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
-endif
-
-" Customized grep command to bypass output window and show quickfix list
-command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
-
-" Create mapping for '%%' to be expanded to current file's working directory
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
 colorscheme molokai
 filetype plugin indent on
 syntax on
@@ -118,10 +107,24 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
 " set wildignore+=node_modules/*,bower_components/*
 
 " For gitgutter to update quicker
-set updatetime=750
+set updatetime=1000
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
+
+" Code search and lookup options
+" Search for tags file in all ancestors
+set tags=./tags;
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+endif
+
+" Customized grep command to bypass output window and show quickfix list
+command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
+
+" Create mapping for '%%' to be expanded to current file's directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Targeted edits [3]
 nnoremap <leader>e :e<space>

@@ -24,6 +24,8 @@ The most fun I've had with a text editor.
 - [Native Fuzzy Search][23]
 - [Airline Font][24] [problems][25]
 - [The Power of G][26]
+- [Buffers][27] and [tabs][28] (schools of thought)
+
 ## Misc Pointers
 
 C-x and C-a can subtract/add numbers
@@ -62,3 +64,5 @@ working directory, etc.
 [24]: http://vi.stackexchange.com/questions/3359/how-to-fix-status-bar-symbols-in-airline-plugin
 [25]: https://github.com/vim-airline/vim-airline/wiki/FAQ
 [26]: http://vim.wikia.com/wiki/Power_of_g
+[27]: http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
+[28]: http://stackoverflow.com/questions/26708822/why-do-vim-experts-prefer-buffers-over-tabs
