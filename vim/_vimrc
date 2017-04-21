@@ -24,6 +24,9 @@ Plug 'airblade/vim-gitgutter'
 " Toml file syntax
 Plug 'cespare/vim-toml'
 
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Hardtime
 Plug 'takac/vim-hardtime'
 
@@ -127,7 +130,7 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Targeted edits [3]
-nnoremap <leader>e :e<space>
+" nnoremap <leader>e :e<space> Remapping to CtrlP as an experiment
 nnoremap <leader>f :find<space>
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
@@ -185,10 +188,18 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " let g:hardtime_default_on = 0
+
+" Setting working path mode to 'raw' to have more control over how CtrlP looks for root dir
+let g:ctrlp_working_path_mode = 'raw'
+" Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
+let g:ctrlp_root_markers = ['tags', '.ctrlproot']
+let g:ctrlp_map = '<leader>e'
+let g:ctrlp_cmd = 'CtrlPMixed'
+" nnoremap <leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>m :CtrlPMRU
 
 " Load windows machine specific options
 if !empty(glob("~/_wvimrc"))
