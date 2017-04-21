@@ -22,11 +22,17 @@ Plug 'airblade/vim-gitgutter'
 " Toml file syntax
 Plug 'cespare/vim-toml'
 
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Hardtime
 Plug 'takac/vim-hardtime'
 
 " Commentary
 Plug 'tpope/vim-commentary'
+
+" Surround
+Plug 'tpope/vim-surround'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
@@ -40,17 +46,6 @@ set noshowmode
 
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
-
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
-endif
-
-" Customized grep command to bypass output window and show quickfix list
-command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
-
-" Create mapping for '%%' to be expanded to current file's working directory
-cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 colorscheme molokai
 filetype plugin indent on
@@ -79,7 +74,7 @@ set expandtab
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
-" set hlsearch
+nnoremap <F2> :set hlsearch!<CR>
 " Incremental search
 set incsearch
 
@@ -117,6 +112,23 @@ set updatetime=750
 
 " Frequent personal shortcuts (mostly leader based)
 let mapleader = "\<Space>"
+
+" Code search and lookup options
+" Search for tags file in all ancestors
+set tags=./tags;
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+
+  " Use ag for ctrlp file listing
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" Customized grep command to bypass output window and show quickfix list
+command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
+
+" Create mapping for '%%' to be expanded to current file's directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Targeted edits [3]
 nnoremap <leader>e :e<space>
@@ -176,9 +188,20 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:hardtime_default_on = 1
+let g:airline_powerline_fonts = 1
+" let g:hardtime_default_on = 0
+
+" Setting working path mode to 'raw' to have more control over how CtrlP looks for root dir
+let g:ctrlp_working_path_mode = 'raw'
+" Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
+let g:ctrlp_root_markers = ['tags', '.ctrlproot']
+let g:ctrlp_show_hidden = 1
+" let g:ctrlp_map = ''
+" let g:ctrlp_cmd = 'CtrlPMixed'
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRU
 
 " Load machine specific options
 if !empty(glob("~/.lvimrc"))
