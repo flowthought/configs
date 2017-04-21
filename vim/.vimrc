@@ -152,7 +152,7 @@ nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
 
 " Buffer management
-nnoremap <leader>b :b<space>
+" nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
 nnoremap <leader>d :bd<CR>
@@ -193,15 +193,15 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " let g:hardtime_default_on = 0
 
-" Setting working path mode to 'raw' to have more control over how CtrlP looks for root dir
-let g:ctrlp_working_path_mode = 'raw'
+" Ctrlp: Search for a root marker upwards from current working directory
+let g:ctrlp_working_path_mode = 'rw'
 " Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
-let g:ctrlp_root_markers = ['tags', '.ctrlproot']
+let g:ctrlp_root_markers = ['tags', '.ctrlp']
 let g:ctrlp_show_hidden = 1
 " let g:ctrlp_map = ''
 " let g:ctrlp_cmd = 'CtrlPMixed'
 nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU
+nnoremap <leader>m :CtrlPMRU<CR>
 
 " Load machine specific options
 if !empty(glob("~/.lvimrc"))
