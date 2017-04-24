@@ -121,6 +121,9 @@ set tags=./tags;
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+
+  " Use ag for ctrlp file listing
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 " Customized grep command to bypass output window and show quickfix list
@@ -154,8 +157,8 @@ nnoremap <leader>3 <C-w>s
 " nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
-" nnoremap <leader>d :bp|bd #<CR>
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>d :bp <bar> bd #<CR>
+" nnoremap <leader>d :bd<CR>
 
 " Tab management
 nnoremap <C-Tab> gt
@@ -196,7 +199,8 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_working_path_mode = 'rw'
 " Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
 let g:ctrlp_root_markers = ['tags', '.ctrlp']
-let g:ctrlp_show_hidden = 1
+" Store cache across sessions on disk for faster loading times
+let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 

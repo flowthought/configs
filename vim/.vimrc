@@ -155,8 +155,8 @@ nnoremap <leader>3 <C-w>s
 " nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
-nnoremap <leader>d :bd<CR>
-nnoremap <leader>! :bd!<CR>
+nnoremap <leader>d :bp <bar> bd #<CR>
+" nnoremap <leader>d :bd<CR>
 
 " Tab management
 nnoremap <C-Tab> gt
@@ -197,7 +197,8 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_working_path_mode = 'rw'
 " Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
 let g:ctrlp_root_markers = ['tags', '.ctrlp']
-let g:ctrlp_show_hidden = 1
+" Store cache across sessions on disk for faster loading times
+let g:ctrlp_clear_cache_on_exit = 0
 " let g:ctrlp_map = ''
 " let g:ctrlp_cmd = 'CtrlPMixed'
 nnoremap <leader>b :CtrlPBuffer<CR>
