@@ -24,6 +24,9 @@ Plug 'airblade/vim-gitgutter'
 " Toml file syntax
 Plug 'cespare/vim-toml'
 
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Hardtime
 Plug 'takac/vim-hardtime'
 
@@ -118,6 +121,9 @@ set tags=./tags;
 if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+
+  " Use ag for ctrlp file listing
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 " Customized grep command to bypass output window and show quickfix list
@@ -125,6 +131,25 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Move by display lines instead of actual lines
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap ^ g^
+
+vnoremap j gj
+vnoremap k gk
+vnoremap 0 g0
+vnoremap $ g$
+vnoremap ^ g^
+
+onoremap j gj
+onoremap k gk
+onoremap 0 g0
+onoremap $ g$
+onoremap ^ g^
 
 " Targeted edits [3]
 nnoremap <leader>e :e<space>
@@ -148,11 +173,11 @@ nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
 
 " Buffer management
-nnoremap <leader>b :b<space>
+" nnoremap <leader>b :b<space>
 nnoremap <leader>] :bn<CR>
 nnoremap <leader>[ :bp<CR>
-" nnoremap <leader>d :bp|bd #<CR>
-nnoremap <leader>d :bd<CR>
+nnoremap <leader>d :bp <bar> bd #<CR>
+" nnoremap <leader>d :bd<CR>
 
 " Tab management
 nnoremap <C-Tab> gt
@@ -177,6 +202,10 @@ vnoremap . :'<,'>normal.<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gr :Gread
+nnoremap <leader>gm :Gmove<CR>
+nnoremap <leader>gx :Gremove<CR>
 
 " Filetype preferences
 autocmd FileType markdown,python setlocal textwidth=80
@@ -185,12 +214,20 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " let g:hardtime_default_on = 0
 
-" Load windows machine specific options
+" Ctrlp: Search for a root marker upwards from current working directory
+let g:ctrlp_working_path_mode = 'rw'
+" Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
+let g:ctrlp_root_markers = ['tags', '.ctrlp']
+" Store cache across sessions on disk for faster loading times
+let g:ctrlp_clear_cache_on_exit = 0
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+
+" Load machine specific options
 if !empty(glob("~/_wvimrc"))
     source ~/_wvimrc
 endif

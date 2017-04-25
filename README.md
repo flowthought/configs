@@ -30,6 +30,16 @@ The most fun I've had with a text editor.
 
 C-x and C-a can subtract/add numbers
 
+### Autocompletion
+<C-n> Generic keywords 
+<C-x><C-n> Current buffer keywords
+<C-x><C-i> Included file keywords
+<C-x><C-]> Tags file keywords
+<C-x><C-k> Dictionary lookup
+<C-x><C-l> Whole line completion
+<C-x><C-f> Filename completion
+<C-x><C-o> Omni-completion
+
 ### Multiple sessions:
 :mksession ~/mysession.vim
 :source ~/mysession.vim OR
