@@ -132,6 +132,25 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" Move by display lines instead of actual lines
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap ^ g^
+
+vnoremap j gj
+vnoremap k gk
+vnoremap 0 g0
+vnoremap $ g$
+vnoremap ^ g^
+
+onoremap j gj
+onoremap k gk
+onoremap 0 g0
+onoremap $ g$
+onoremap ^ g^
+
 " Targeted edits [3]
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :find<space>
@@ -183,6 +202,10 @@ vnoremap . :'<,'>normal.<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gr :Gread
+nnoremap <leader>gm :Gmove<CR>
+nnoremap <leader>gx :Gremove<CR>
 
 " Filetype preferences
 autocmd FileType markdown,python setlocal textwidth=80
