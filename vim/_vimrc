@@ -203,7 +203,6 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gr :Gread
 nnoremap <leader>gm :Gmove<CR>
 nnoremap <leader>gx :Gremove<CR>
 
