@@ -63,6 +63,8 @@ set number
 
 " Backspace through everything
 set backspace=indent,eol,start
+" Tilde as operator
+set tildeop
 
 " Tabs as four spaces[1]
 " show existing tab with 4 spaces width
