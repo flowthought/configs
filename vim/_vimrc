@@ -65,6 +65,8 @@ set number
 
 " Backspace through everything
 set backspace=indent,eol,start
+" Tilde as operator
+set tildeop
 
 " Tabs as four spaces[1]
 " show existing tab with 4 spaces width
@@ -131,7 +133,6 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
-
 
 " Targeted edits [3]
 nnoremap <leader>e :e<space>

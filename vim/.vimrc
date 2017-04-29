@@ -179,11 +179,54 @@ nnoremap <F4> :cn<CR>
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>normal.<CR>
+" Use the '&' command to repeat the last substitution with flags
+vnoremap & :&&<CR>
+nnoremap & :&&<CR>
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<space>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gm :Gmove<CR>
+nnoremap <leader>gx :Gremove<CR>
+
+" Move by display lines instead of actual lines
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap ^ g^
+
+vnoremap j gj
+vnoremap k gk
+vnoremap 0 g0
+vnoremap $ g$
+vnoremap ^ g^
+
+onoremap j gj
+onoremap k gk
+onoremap 0 g0
+onoremap $ g$
+onoremap ^ g^
+
+nnoremap g$ $
+nnoremap g0 0
+nnoremap g^ ^
+nnoremap gj j
+nnoremap gk k
+
+vnoremap g$ $
+vnoremap g0 0
+vnoremap g^ ^
+vnoremap gj j
+vnoremap gk k
+
+onoremap g$ $
+onoremap g0 0
+onoremap g^ ^
+onoremap gj j
+onoremap gk k
 
 " Filetype preferences
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
@@ -201,8 +244,6 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlp']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-" let g:ctrlp_map = ''
-" let g:ctrlp_cmd = 'CtrlPMixed'
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 
