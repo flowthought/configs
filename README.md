@@ -48,6 +48,13 @@ $ vim -S ~/mysession.vim (at startup)
 In your machine specific .xvimrc (where x <- {l, w, m}) files, set specific options like textwidth, path, tags, ctrlp
 working directory, etc.
 
+### Current Window state
+You can save the state of the current window through the mkview and loadview
+commands. This includes window specific variables, **folds** and the like. Very
+handy for pesky files which you would like to fold away. see :h mkview, :h
+loadview. This can be [automated][29] with auto commands.
+
+
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
 [2]: http://learnvimscriptthehardway.stevelosh.com/
 [3]: http://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim
@@ -76,3 +83,4 @@ working directory, etc.
 [26]: http://vim.wikia.com/wiki/Power_of_g
 [27]: http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 [28]: http://stackoverflow.com/questions/26708822/why-do-vim-experts-prefer-buffers-over-tabs
+[29]: https://vi.stackexchange.com/questions/5488/can-i-save-folds
