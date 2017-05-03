@@ -52,7 +52,21 @@ working directory, etc.
 You can save the state of the current window through the mkview and loadview
 commands. This includes window specific variables, **folds** and the like. Very
 handy for pesky files which you would like to fold away. see :h mkview, :h
-loadview. This can be [automated][29] with auto commands.
+loadview. This can be [automated][29] with auto commands. Also have a look at
+:h auto-setting and :h modeline
+
+Move the line at cursor position to:
+
+        (1)     (2)
+Top:    zt      z<CR>
+Middle: zz      z.
+Bottom: zb      z-
+
+(1): Cursor column unchanged
+(2): Cursor brought to first non whitespace character
+
+
+
 
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
