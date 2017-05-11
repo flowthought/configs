@@ -34,6 +34,9 @@ Plug 'tpope/vim-commentary'
 " Surround
 Plug 'tpope/vim-surround'
 
+" Repeat
+Plug 'tpope/vim-repeat'
+
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
