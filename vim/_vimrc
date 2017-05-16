@@ -179,14 +179,6 @@ vnoremap . :'<,'>normal.<CR>
 vnoremap & :&&<CR>
 nnoremap & :&&<CR>
 
-" Git (fugitive) quick shortcuts
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gc :Gcommit<space>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gm :Gmove<CR>
-nnoremap <leader>gx :Gremove<CR>
-
 " Move by display lines instead of actual lines
 nnoremap j gj
 nnoremap k gk
@@ -227,6 +219,17 @@ onoremap gk k
 " Filetype preferences
 autocmd FileType markdown,python setlocal textwidth=80
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
+" Git (fugitive) quick shortcuts
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gm :Gmove<CR>
+nnoremap <leader>gx :Gremove<CR>
+
+" Clear fugitive buffers automatically
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
