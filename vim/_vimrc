@@ -63,7 +63,7 @@ set backspace=indent,eol,start
 " Tilde as operator
 " set tildeop
 
-" Tabs as four spaces[1]
+" Tabs as four spaces
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -80,7 +80,7 @@ set incsearch
 " Set max tab pages (up from 10)
 set tabpagemax=15
 
-" Set smart case search[2]. Will search insensitive unless there is a capital
+" Set smart case search. Will search insensitive unless there is a capital
 " letter in the search string
 set ignorecase
 set smartcase
@@ -129,7 +129,7 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Targeted edits [3]
+" Targeted edits
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :find<space>
 nnoremap <leader>or :e ./**/*
@@ -230,15 +230,19 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
+" Use tabs and buffers as they are meant to be used
 let g:airline#extensions#tabline#show_buffers = 0
+" Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
+" Turn this on if you use hjkl too much for motions 
 " let g:hardtime_default_on = 0
 
 " Ctrlp: Search for a root marker upwards from current working directory
 let g:ctrlp_working_path_mode = 'rw'
 " Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
-" For some reason, it's not picking .git files in windows sometimes, adding here fixes it.
+" For some reason, it's not picking .git folders in windows sometimes, adding here fixes it.
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.git']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
@@ -249,7 +253,3 @@ nnoremap <leader>m :CtrlPMRU<CR>
 if !empty(glob("~/_wvimrc"))
     source ~/_wvimrc
 endif
-
-" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
-" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
-" [3]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file

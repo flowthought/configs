@@ -25,6 +25,9 @@ The most fun I've had with a text editor.
 - [Airline Font][24] [problems][25]
 - [The Power of G][26]
 - [Buffers][27] and [tabs][28] (schools of thought)
+- [Four space tab][30]
+- [Smart case][31]
+- [Source/header switch][32]
 
 ## Misc Pointers
 
@@ -101,3 +104,6 @@ plugin install for new vim installs.
 [27]: http://joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 [28]: http://stackoverflow.com/questions/26708822/why-do-vim-experts-prefer-buffers-over-tabs
 [29]: https://vi.stackexchange.com/questions/5488/can-i-save-folds
+[30]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
+[31]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
+[32]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
