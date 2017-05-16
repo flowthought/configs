@@ -65,9 +65,12 @@ Bottom: zb      z-
 (1): Cursor column unchanged
 (2): Cursor brought to first non whitespace character
 
+### Autosetup
 
+Read the [faq and tips][30] setion of vim-plug documentation to setup automatic
+plugin install for new vim installs.
 
-
+--------------------------------------------------------------------------------
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
 [2]: http://learnvimscriptthehardway.stevelosh.com/

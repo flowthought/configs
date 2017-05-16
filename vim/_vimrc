@@ -21,20 +21,15 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Toml file syntax
+" Syntax
 Plug 'cespare/vim-toml'
 
-" CtrlP
+" Extensions
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Hardtime
 Plug 'takac/vim-hardtime'
-
-" Commentary
 Plug 'tpope/vim-commentary'
-
-" Surround
 Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
