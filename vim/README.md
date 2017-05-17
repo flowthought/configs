@@ -28,6 +28,7 @@ The most fun I've had with a text editor.
 - [Four space tab][30]
 - [Smart case][31]
 - [Source/header switch][32]
+- [Vim-LaTeX][33]
 
 ## Misc Pointers
 
@@ -107,3 +108,4 @@ plugin install for new vim installs.
 [30]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 [31]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 [32]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
+[33]: http://vim-latex.sourceforge.net/index.php?subject=features&title=Features
