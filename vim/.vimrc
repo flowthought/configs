@@ -23,25 +23,29 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Syntax
-Plug 'cespare/vim-toml'
-
 " Extensions
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 
-" Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
+" Language
+Plug 'cespare/vim-toml'
+Plug 'plasticboy/vim-markdown'
+
+" Cool status bar plugin. Preferably keep this at the end since it can depend on
+" other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
 
-" When vim-airline is enabled, it shows the mode in the status bar. Disabling default mode indicator in this case
+" When vim-airline is enabled, it shows the mode in the status bar. Disabling
+" default mode indicator in this case
 set noshowmode
 
 " Nerd Tree show
@@ -222,6 +226,7 @@ onoremap gk k
 
 " Filetype preferences
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>

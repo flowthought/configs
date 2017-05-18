@@ -29,13 +29,15 @@ The most fun I've had with a text editor.
 - [Smart case][31]
 - [Source/header switch][32]
 - [Vim-LaTeX][33]
+- [Tabular][34] and [markdown][35] extensions.
+- [Markdown style guide][36]
 
 ## Misc Pointers
 
 C-x and C-a can subtract/add numbers
 
 ### Autocompletion
-<C-n> Generic keywords 
+<C-n> Generic keywords
 <C-x><C-n> Current buffer keywords
 <C-x><C-i> Included file keywords
 <C-x><C-]> Tags file keywords
@@ -49,8 +51,8 @@ C-x and C-a can subtract/add numbers
 :source ~/mysession.vim OR
 $ vim -S ~/mysession.vim (at startup)
 
-In your machine specific .xvimrc (where x <- {l, w, m}) files, set specific options like textwidth, path, tags, ctrlp
-working directory, etc.
+In your machine specific .xvimrc (where `x <- {l, w, m}`) files, set specific
+options like textwidth, path, tags, ctrlp working directory, etc.
 
 ### Current Window state
 You can save the state of the current window through the mkview and loadview
@@ -61,10 +63,11 @@ loadview. This can be [automated][29] with auto commands. Also have a look at
 
 Move the line at cursor position to:
 
-        (1)     (2)
-Top:    zt      z<CR>
-Middle: zz      z.
-Bottom: zb      z-
+         | (1) | (2)
+---------|-----|-----
+Top      | zt  | z<CR>
+Middle   | zz  | z.
+Bottom   | zb  | z-
 
 (1): Cursor column unchanged
 (2): Cursor brought to first non whitespace character
@@ -109,3 +112,6 @@ plugin install for new vim installs.
 [31]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
 [32]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
 [33]: http://vim-latex.sourceforge.net/index.php?subject=features&title=Features
+[34]: https://github.com/godlygeek/tabular
+[35]: https://github.com/plasticboy/vim-markdown
+[36]: http://www.cirosantilli.com/markdown-style-guide/
