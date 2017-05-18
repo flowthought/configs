@@ -34,7 +34,6 @@ Plug 'tpope/vim-repeat'
 
 " Language
 Plug 'cespare/vim-toml'
-Plug 'plasticboy/vim-markdown'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on
 " other plugins
