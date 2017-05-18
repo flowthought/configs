@@ -1,8 +1,12 @@
 " Remap jk to ESC
 inoremap jk <ESC>
 
-" Vim-Plug(junegunn/vim-plug). Run the following on linux. Not checking this in because it needs to be updated.
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" The meta plugin
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
@@ -19,22 +23,15 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Toml file syntax
+" Syntax
 Plug 'cespare/vim-toml'
 
-" CtrlP
+" Extensions
 Plug 'ctrlpvim/ctrlp.vim'
-
-" Hardtime
 Plug 'takac/vim-hardtime'
-
-" Commentary
 Plug 'tpope/vim-commentary'
-
-" Surround
 Plug 'tpope/vim-surround'
-
-" Repeat
+Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-repeat'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
@@ -67,9 +64,9 @@ set number
 " Backspace through everything
 set backspace=indent,eol,start
 " Tilde as operator
-set tildeop
+" set tildeop
 
-" Tabs as four spaces[1]
+" Tabs as four spaces
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -86,7 +83,7 @@ set incsearch
 " Set max tab pages (up from 10)
 set tabpagemax=15
 
-" Set smart case search[2]. Will search insensitive unless there is a capital
+" Set smart case search. Will search insensitive unless there is a capital
 " letter in the search string
 set ignorecase
 set smartcase
@@ -135,7 +132,7 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Targeted edits [3]
+" Targeted edits
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :find<space>
 nnoremap <leader>or :e ./**/*
@@ -186,14 +183,6 @@ vnoremap . :'<,'>normal.<CR>
 vnoremap & :&&<CR>
 nnoremap & :&&<CR>
 
-" Git (fugitive) quick shortcuts
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-nnoremap <leader>gc :Gcommit<space>
-nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gm :Gmove<CR>
-nnoremap <leader>gx :Gremove<CR>
-
 " Move by display lines instead of actual lines
 nnoremap j gj
 nnoremap k gk
@@ -234,11 +223,26 @@ onoremap gk k
 " Filetype preferences
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
+" Git (fugitive) quick shortcuts
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gm :Gmove<CR>
+nnoremap <leader>gx :Gremove<CR>
+
+" Clear fugitive buffers automatically
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
+" Use tabs and buffers as they are meant to be used
 let g:airline#extensions#tabline#show_buffers = 0
+" Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
+" Turn this on if you use hjkl too much for motions 
 " let g:hardtime_default_on = 0
 
 " Ctrlp: Search for a root marker upwards from current working directory
@@ -254,7 +258,3 @@ nnoremap <leader>m :CtrlPMRU<CR>
 if !empty(glob("~/.lvimrc"))
     source ~/.lvimrc
 endif
-
-"" [1]: http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
-"" [2]: http://stackoverflow.com/questions/2287440/how-to-do-case-insensitive-search-in-vim
-"" [3]: http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file

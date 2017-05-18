@@ -30,6 +30,7 @@ Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-repeat'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
 Plug 'vim-airline/vim-airline'
@@ -103,7 +104,7 @@ set splitright
 set wildmenu
 set wildmode=full
 " Don't offer to open certain files/directories
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " set wildignore+=node_modules/*,bower_components/*
 
 " For gitgutter to update quicker
