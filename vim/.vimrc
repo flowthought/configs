@@ -34,6 +34,7 @@ Plug 'tpope/vim-repeat'
 
 " Language
 Plug 'cespare/vim-toml'
+Plug 'hail2u/vim-css3-syntax'
 
 " Cool status bar plugin. Preferably keep this at the end since it can depend on
 " other plugins
@@ -225,15 +226,14 @@ onoremap gk k
 
 " Filetype preferences
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
+runtime macros/matchit.vim
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gm :Gmove<CR>
-nnoremap <leader>gx :Gremove<CR>
 
 " Clear fugitive buffers automatically
 autocmd BufReadPost fugitive://* set bufhidden=delete

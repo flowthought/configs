@@ -38,12 +38,13 @@ fi
 eval $(ssh-agent)
 
 # Set background image with feh
-feh --bg-scale ~/pics/forest_mist.jpg &
+feh --bg-scale ~/pics/sunset.jpg &
 
-# Start xbindkeys
+# Start xbindkeys and screensaver
 xbindkeys
+xscreensaver
 
-# Adjust the brightness to avoid display looking washed out
+# Reduce brightness to avoid display looking washed out
 xrandr --output HDMI-0 --brightness 0.81
 
 # The exec command does not fork
