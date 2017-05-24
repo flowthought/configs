@@ -31,6 +31,7 @@ The most fun I've had with a text editor.
 - [Vim-LaTeX][33]
 - [Tabular][34] and [markdown][35] extensions.
 - [Markdown style guide][36]
+- [A great tutorial video][38]
 
 ## Misc Pointers
 
@@ -77,6 +78,39 @@ Bottom   | zb  | z-
 Read the [faq and tips][30] setion of vim-plug documentation to setup automatic
 plugin install for new vim installs.
 
+### Vim Server
+
+You can use vim as a server to connect to, using command line. This can be used
+to open files in existing instances. It's a higher level workspace abstraction
+above tabs. Tabs can be used as different aspects of a single tasks. Multiple
+servers can be used for multiple tasks.
+
+    # Start server
+    $ vim --servername <name>
+    # Join existing server
+    $ vim --servername <name> --remote-silent <filename>
+
+Check out the following links:
+ -  [Server mode][37]
+ -  [Vim-session][38]
+
+### CtrlP shortcuts
+
+These tend to be underestimated. For quick reference:
+Once CtrlP is open:
+
+Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+Press <c-f> and <c-b> to cycle between modes.
+Press <c-d> to switch to filename search instead of full path.
+Press <c-r> to switch to regexp mode.
+Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+Use <c-y> to create a new file and its parent directories.
+Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
+Check out the [github page][37] or :h ctrlp-commands for more.
+
 --------------------------------------------------------------------------------
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
@@ -115,3 +149,5 @@ plugin install for new vim installs.
 [34]: https://github.com/godlygeek/tabular
 [35]: https://github.com/plasticboy/vim-markdown
 [36]: http://www.cirosantilli.com/markdown-style-guide/
+[37]: https://github.com/kien/ctrlp.vim
+[38]: https://www.youtube.com/watch?v=3TX3kV3TICU
