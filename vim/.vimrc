@@ -64,6 +64,8 @@ set clipboard=unnamedplus
 
 " Show line numbers
 set number
+" Toggle relative/absolute numbering
+nnoremap <F7> :set relativenumber!<CR>
 
 " Backspace through everything
 set backspace=indent,eol,start

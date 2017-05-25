@@ -31,7 +31,7 @@ The most fun I've had with a text editor.
 - [Vim-LaTeX][33]
 - [Tabular][34] and [markdown][35] extensions.
 - [Markdown style guide][36]
-- [A great tutorial video][38]
+- [A great video on Autocompletion][38]
 
 ## Misc Pointers
 

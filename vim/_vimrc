@@ -21,18 +21,21 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Syntax
-Plug 'cespare/vim-toml'
-
 " Extensions
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
+Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 
-" Cool status bar plugin. Preferably keep this at the end since it can depend on other plugins
+" Language
+Plug 'cespare/vim-toml'
+Plug 'hail2u/vim-css3-syntax'
+
+" Cool status bar plugin. Preferably keep this at the end since it can depend on
+" other plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -58,6 +61,8 @@ set clipboard=unnamed
 
 " Show line numbers
 set number
+" Toggle relative/absolute numbering
+nnoremap <F7> :set relativenumber!<CR>
 
 " Backspace through everything
 set backspace=indent,eol,start
@@ -220,14 +225,14 @@ onoremap gk k
 " Filetype preferences
 autocmd FileType markdown,python setlocal textwidth=80
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
+runtime macros/matchit.vim
 
 " Git (fugitive) quick shortcuts
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gw :Gwrite<CR>
-nnoremap <leader>gm :Gmove<CR>
-nnoremap <leader>gx :Gremove<CR>
 
 " Clear fugitive buffers automatically
 autocmd BufReadPost fugitive://* set bufhidden=delete
