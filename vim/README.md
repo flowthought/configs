@@ -32,6 +32,7 @@ The most fun I've had with a text editor.
 - [Tabular][34] and [markdown][35] extensions.
 - [Markdown style guide][36]
 - [A great video on Autocompletion][38]
+- [Vim-LaTeX][39]
 
 ## Misc Pointers
 
@@ -151,3 +152,4 @@ Check out the [github page][37] or :h ctrlp-commands for more.
 [36]: http://www.cirosantilli.com/markdown-style-guide/
 [37]: https://github.com/kien/ctrlp.vim
 [38]: https://www.youtube.com/watch?v=3TX3kV3TICU
+[39]: http://vim-latex.sourceforge.net/index.php?subject=features&title=Features
