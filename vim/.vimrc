@@ -138,6 +138,9 @@ command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
 " Create mapping for '%%' to be expanded to current file's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" Make the Y command consistent with the C and D commands
+nnoremap Y y$
+
 " Targeted edits
 nnoremap <leader>e :e<space>
 nnoremap <leader>f :find<space>
@@ -248,7 +251,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
-" Turn this on if you use hjkl too much for motions 
+" Turn this on if you use hjkl too much for motions
 " let g:hardtime_default_on = 0
 
 " Ctrlp: Search for a root marker upwards from current working directory
