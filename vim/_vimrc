@@ -155,9 +155,14 @@ nnoremap <leader>od :windo diffthis<CR>
 nnoremap <leader>oD :windo diffoff<CR>
 
 " Window management
+nnoremap <leader>0 <C-w>c
 nnoremap <leader>1 <C-w>o
 nnoremap <leader>2 <C-w>v
 nnoremap <leader>3 <C-w>s
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Buffer management
 " nnoremap <leader>b :b<space>
@@ -179,8 +184,8 @@ nnoremap <leader>w :w<CR>
 " Search for word under cursor. Use appropriate shortcut
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
 nnoremap <leader>ll :Lookup<space>
-nnoremap <F3> :cp<CR>
-nnoremap <F4> :cn<CR>
+nnoremap [q :cp<CR>
+nnoremap ]q :cn<CR>
 
 " Use the '.' command as a verb in visual mode
 vnoremap . :'<,'>normal.<CR>
