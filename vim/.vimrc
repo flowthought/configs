@@ -66,6 +66,7 @@ set clipboard=unnamedplus
 set number
 " Toggle relative/absolute numbering
 nnoremap <F7> :set relativenumber!<CR>
+inoremap <F7> :set relativenumber!<CR>
 
 " Backspace through everything
 set backspace=indent,eol,start
