@@ -1,5 +1,5 @@
 " Set font and color scheme
-set guifont=Inconsolata\ 14
+set guifont=Inconsolata\ 13
 
 "set background=dark
 "let g:solarized_contrast="normal"
