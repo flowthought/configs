@@ -1,11 +1,8 @@
 " Set font and color scheme
-set guifont=Inconsolata\ 16
-
-" color koehler
-syntax enable
+set guifont=Inconsolata\ 13
 
 "set background=dark
-colorscheme monokai
+"let g:solarized_contrast="normal"
 
 " Hide menu and tool bars[1]. See :help guioptions
 set guioptions -=m 
