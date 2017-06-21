@@ -179,6 +179,7 @@ nnoremap <leader>d :bp <bar> bd #<CR>
 nnoremap <C-Tab> gt
 " nnoremap <C-S-Tab> gT -- doesn't seem to work in mac
 nnoremap <leader>n :tabnew %<CR>
+nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
 

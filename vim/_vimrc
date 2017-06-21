@@ -175,7 +175,8 @@ nnoremap <leader>d :bp <bar> bd #<CR>
 " Tab management
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
-nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>n :tabnew %<CR>
+nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
 
