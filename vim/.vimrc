@@ -264,7 +264,7 @@ let g:airline_powerline_fonts = 1
 " Ctrlp: Search for a root marker upwards from current working directory
 let g:ctrlp_working_path_mode = 'rw'
 " Additional prioritized root markers (over .git, .hg, etc.) for CtrlP
-let g:ctrlp_root_markers = ['tags', '.ctrlproot']
+let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <leader>b :CtrlPBuffer<CR>
