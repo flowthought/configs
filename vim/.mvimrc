@@ -1,6 +1,6 @@
 " Platform specific options
 set clipboard=unnamed
-set textwidth=80 
+set textwidth=80
 
 " Allow using find command in common places
 set path=~/,~/repos/**
