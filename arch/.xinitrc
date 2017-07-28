@@ -40,12 +40,12 @@ eval $(ssh-agent)
 # Set background image with feh
 feh --bg-scale ~/pics/sunset.jpg &
 
-# Start xbindkeys and screensaver
-xbindkeys
-xscreensaver
-
 # Reduce brightness to avoid display looking washed out
 xrandr --output HDMI-0 --brightness 0.81
+
+# Start xbindkeys and screensaver
+xbindkeys
+# xscreensaver -no-splash & # Currently this resets xrandr settings
 
 # The exec command does not fork
 exec xmonad
