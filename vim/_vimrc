@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
@@ -83,9 +84,6 @@ set expandtab
 nnoremap <F2> :set hlsearch!<CR>
 " Incremental search
 set incsearch
-
-" Set max tab pages (up from 10)
-set tabpagemax=15
 
 " Set smart case search. Will search insensitive unless there is a capital
 " letter in the search string
