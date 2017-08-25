@@ -15,9 +15,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Themes
-Plug 'sickill/vim-monokai'
+" Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
