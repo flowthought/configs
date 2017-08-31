@@ -92,10 +92,6 @@ servers can be used for multiple tasks.
     # Join existing server
     $ vim --servername <name> --remote-silent <filename>
 
-Check out the following links:
- -  [Server mode][37]
- -  [Vim-session][38]
-
 ### CtrlP shortcuts
 
 These tend to be underestimated. For quick reference:
