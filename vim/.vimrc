@@ -52,7 +52,7 @@ set noshowmode
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
-colorscheme molokai
+colorscheme gruvbox
 filetype plugin indent on
 syntax on
 set encoding=utf-8
@@ -238,8 +238,11 @@ onoremap gj j
 onoremap gk k
 
 " Filetype preferences
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
+augroup filepref
+    autocmd!
+    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+    autocmd FileType html,css,hs,md setlocal shiftwidth=2 tabstop=2
+augroup END
 runtime macros/matchit.vim
 
 " Git (fugitive) quick shortcuts
