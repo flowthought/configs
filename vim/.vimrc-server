@@ -258,7 +258,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 " Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Enable powerline fonts for cool arrow effects in statusbar
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 " Turn this on if you use hjkl too much for motions
 " let g:hardtime_default_on = 0
 
