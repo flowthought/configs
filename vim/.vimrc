@@ -52,7 +52,6 @@ set noshowmode
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
-colorscheme gruvbox
 filetype plugin indent on
 syntax on
 set encoding=utf-8

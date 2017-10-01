@@ -4,6 +4,9 @@ set guifont=Inconsolata\ 13
 "set background=dark
 "let g:solarized_contrast="normal"
 
+set background=dark
+colorscheme gruvbox
+
 " Hide menu and tool bars[1]. See :help guioptions
 set guioptions -=m 
 set guioptions -=T
