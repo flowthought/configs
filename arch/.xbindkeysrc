@@ -66,13 +66,13 @@
 #  Control + b:2 + Release
 
 
-"pamixer --sink 1 --increase 1"
+"pamixer --increase 1"
     XF86AudioRaiseVolume    
 
-"pamixer --sink 1 --decrease 1"
+"pamixer --decrease 1"
     XF86AudioLowerVolume    
 
-"pamixer --sink 1 --toggle-mute"
+"pamixer --toggle-mute"
     XF86AudioMute
 
 ##################################
