@@ -34,6 +34,7 @@ The most fun I've had with a text editor.
 - [A great video on Autocompletion][38]
 - [Vim-LaTeX][39]
 - [Encryption][40]
+- [Why][41] [autogroups][42]?
 
 ## Misc Pointers
 
@@ -109,6 +110,23 @@ Use <c-z> to mark/unmark multiple files and <c-o> to open them.
 
 Check out the [github page][37] or :h ctrlp-commands for more.
 
+### Macros
+
+Store key playback in macro x:
+    :let @x="o //TODO: "
+
+Playback macro in normal way via @x.
+
+Macro x is stored in register x.
+View macro: "xp
+
+E.g. of a complex macro. Surround entire function with if check:
+>iB?{oif(true){%O}
+
+^M is <CR> and ^[ is <ESC>
+To input them in insert mode, press Ctrl-V and the esc or enter key. The ctrl-v
+inserts the next non-digit literally. See :help i\_CTRL-V
+
 --------------------------------------------------------------------------------
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
@@ -151,3 +169,5 @@ Check out the [github page][37] or :h ctrlp-commands for more.
 [38]: https://www.youtube.com/watch?v=3TX3kV3TICU
 [39]: http://vim-latex.sourceforge.net/index.php?subject=features&title=Features
 [40]: http://vim.wikia.com/wiki/Encryption
+[41]: https://vi.stackexchange.com/questions/9455/why-should-i-use-augroup
+[42]: http://learnvimscriptthehardway.stevelosh.com/chapters/14.html 
