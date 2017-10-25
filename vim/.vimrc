@@ -270,7 +270,8 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-nnoremap <leader>b :CtrlPBuffer<CR>
+"nnoremap <leader>b :CtrlPBuffer<CR> Disabling because it switches tabs
+nnoremap <leader>b :b 
 nnoremap <leader>m :CtrlPMRU<CR>
 
 " Load machine specific options
