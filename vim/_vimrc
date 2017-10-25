@@ -13,7 +13,7 @@ call plug#begin('~/_vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Themes
-Plug 'sickill/vim-monokai'
+" Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
@@ -84,6 +84,9 @@ set expandtab
 nnoremap <F2> :set hlsearch!<CR>
 " Incremental search
 set incsearch
+
+" Set max tab pages (up from 10)
+set tabpagemax=15
 
 " Set smart case search. Will search insensitive unless there is a capital
 " letter in the search string
@@ -231,9 +234,13 @@ onoremap gj j
 onoremap gk k
 
 " Filetype preferences
-autocmd FileType markdown,python setlocal textwidth=80
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
+augroup filepref
+    autocmd!
+    autocmd FileType markdown,py setlocal textwidth=80 tabstop=2 shiftwidth=2
+    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+    autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
+    autocmd FileType xaml setlocal syntax=xml
+augroup END
 runtime macros/matchit.vim
 
 " Git (fugitive) quick shortcuts
@@ -263,7 +270,8 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.git', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-nnoremap <leader>b :CtrlPBuffer<CR>
+"nnoremap <leader>b :CtrlPBuffer<CR> Disabling because it switches tabs
+nnoremap <leader>b :b 
 nnoremap <leader>m :CtrlPMRU<CR>
 
 " Load machine specific options
