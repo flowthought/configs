@@ -1,0 +1,7 @@
+-- import XMonad
+-- import XMonad.Layout.NoBorders
+
+-- mylayoutHook = smartBorders Full
+-- main = xmonad $ def { layoutHook = mylayoutHook }
+
+
