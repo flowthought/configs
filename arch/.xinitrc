@@ -37,8 +37,6 @@ fi
 # Start ssh-agent
 eval $(ssh-agent)
 
-# Set background image with feh
-feh --bg-scale ~/pics/sunset.jpg &
 
 # Reduce brightness to avoid display looking washed out
 xrandr --output HDMI-0 --brightness 0.81
@@ -47,6 +45,27 @@ xrandr --output HDMI-0 --brightness 0.81
 xbindkeys
 # xscreensaver -no-splash & # Currently this resets xrandr settings
 
-# The exec command does not fork
-exec xmonad
+
+# Here xmonad is kept as default
+session=${1:-xmonad}
+
+case $session in
+    kde)
+        exec startkde;;
+
+    xmonad)
+        # Set background image with feh
+        feh --bg-scale ~/pics/sunset.jpg &
+        # The exec command does not fork
+        exec xmonad;;
+
+    i3)
+        # Set background image with feh
+        feh --bg-scale ~/pics/sunset.jpg &
+        exec i3;;
+
+    # No known session, try to run it as command
+    *)
+        exec $1;;
+esac
 
