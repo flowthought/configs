@@ -50,6 +50,7 @@ set noshowmode
 map <C-n> :NERDTreeToggle<CR>
 
 colorscheme molokai
+" colorscheme gruvbox
 filetype plugin indent on
 syntax on
 set encoding=utf-8
