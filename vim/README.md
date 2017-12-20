@@ -127,6 +127,9 @@ E.g. of a complex macro. Surround entire function with if check:
 To input them in insert mode, press Ctrl-V and the esc or enter key. The ctrl-v
 inserts the next non-digit literally. See :help i\_CTRL-V
 
+Read :h eol and :h fixeol to understand behavior regarding EOLs at the end of
+files.
+
 --------------------------------------------------------------------------------
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
