@@ -73,13 +73,14 @@ set backspace=indent,eol,start
 " Tilde as operator
 " set tildeop
 
-" Tabs as four spaces
-" show existing tab with 4 spaces width
+" A tab width is equivalent to 4 spaces
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
-" On pressing tab, insert 4 spaces
+" Use equivalent number of spaces instead of <Tab>
 set expandtab
+" Break lines at reasonable characters (:h breakat)
+set linebreak
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " highlighting within search results until the next search is performed.
@@ -259,6 +260,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 " Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
+" Disable the additional [tabs], [buffers] markers
+let g:airline#extensions#tabline#show_tab_type = 0
 " Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
 " Turn this on if you use hjkl too much for motions
