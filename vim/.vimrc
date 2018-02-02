@@ -241,7 +241,7 @@ onoremap gk k
 augroup filepref
     autocmd!
     autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-    autocmd FileType html,css,hs,md setlocal shiftwidth=2 tabstop=2
+    autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
 augroup END
 runtime macros/matchit.vim
 

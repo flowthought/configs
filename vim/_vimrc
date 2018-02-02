@@ -237,10 +237,10 @@ onoremap gk k
 " Filetype preferences
 augroup filepref
     autocmd!
-    autocmd FileType markdown,py setlocal textwidth=80 tabstop=2 shiftwidth=2
+    autocmd FileType markdown,py setlocal textwidth=80
     autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
     autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
-    autocmd FileType xaml setlocal syntax=xml
+    autocmd BufNewFile,BufRead *.xaml setfiletype xml
 augroup END
 runtime macros/matchit.vim
 
@@ -261,6 +261,8 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
+" Disable tab type display like [tabs], [buffers]
+let g:airline#extensions#tabline#show_tab_type = 0
 " Turn this on if you use hjkl too much for motions
 " let g:hardtime_default_on = 0
 
