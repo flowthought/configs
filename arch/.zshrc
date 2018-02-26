@@ -11,6 +11,7 @@ zstyle :compinstall filename '/home/flowthought/.zshrc'
 
 autoload -Uz compinit
 compinit
+autoload -U zmv
 # End of lines added by compinstall
 
 # Oh-my-zsh
