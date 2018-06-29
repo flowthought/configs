@@ -27,7 +27,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 
@@ -81,9 +81,11 @@ set shiftwidth=4
 set expandtab
 
 " Highlight search results by default. Use :noh to temporarily turn off
-" highlighting within search results until the next search is performed.
+" Highlight all search results until the next search is performed.
+set hlsearch
+" Shortcut to turn on/off highlight search
 nnoremap <F2> :set hlsearch!<CR>
-" Incremental search
+" Incremental search: Search as each character is typed
 set incsearch
 
 " Set max tab pages (up from 10)
@@ -119,6 +121,8 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 set updatetime=1000
 
 " Frequent personal shortcuts (mostly leader based)
+" ------------------------------------------------
+
 let mapleader = "\<Space>"
 
 " Code search and lookup options
@@ -242,6 +246,8 @@ augroup filepref
     autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.xaml setfiletype xml
 augroup END
+
+" Allows % to be used to match xml start/end tags
 runtime macros/matchit.vim
 
 " Git (fugitive) quick shortcuts
@@ -273,8 +279,8 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.git', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-"nnoremap <leader>b :CtrlPBuffer<CR> Disabling because it switches tabs
 nnoremap <leader>b :b 
+nnoremap <leader>B :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 
 " Load machine specific options
