@@ -131,6 +131,19 @@ In Windows, use Ctrl-q instead of Ctrl-v
 Read :h eol and :h fixeol to understand behavior regarding EOLs at the end of
 files.
 
+### Regexp
+
+Very Magic: Makes all special characters have special meaning. Hence they need
+to be escaped. Activated with \v
+
+Very Nomagic: Makes all special characters literal. Activated with \V.
+
+There are two other modes not of much use. Read about them [here][43]
+
+Make regexp lazy with `\{-}`. E.g. `reg.\{-}test` matches the upto the first "test"
+in the string "regexptesthuhatestlala" while `reg.*test` matches upto the
+second. See :h non-greedy for more.
+
 --------------------------------------------------------------------------------
 
 [1]: https://danielmiessler.com/study/vim/#gs.CNpdkew
@@ -175,3 +188,4 @@ files.
 [40]: http://vim.wikia.com/wiki/Encryption
 [41]: https://vi.stackexchange.com/questions/9455/why-should-i-use-augroup
 [42]: http://learnvimscriptthehardway.stevelosh.com/chapters/14.html 
+[43]: http://andrewradev.com/2011/05/08/vim-regexes/
