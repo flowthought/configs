@@ -32,7 +32,6 @@ Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
-Plug 'reedes/vim-pencil'
 
 " Language
 Plug 'cespare/vim-toml'

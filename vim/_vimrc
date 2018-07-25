@@ -30,7 +30,6 @@ Plug 'tpope/vim-surround'
 " Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
-Plug 'reedes/vim-pencil'
 
 " Language
 Plug 'cespare/vim-toml'
@@ -80,6 +79,9 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+" Disable all bell sounds
+set belloff=all
 
 " Highlight search results by default. Use :noh to temporarily turn off
 " Highlight all search results until the next search is performed.
