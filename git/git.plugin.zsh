@@ -40,6 +40,7 @@ function work_in_progress() {
 
 alias gs='git status'
 alias ga='git add'
+alias gaa='git add -A'
 alias gf='git fetch'
 alias gm='git merge'
 alias gr='git rebase'
