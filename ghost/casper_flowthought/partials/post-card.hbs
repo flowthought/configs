@@ -21,6 +21,9 @@
         <a class="post-card-content-link" href="{{url}}">
 
             <header class="post-card-header">
+                {{#if primary_tag}}
+                    <span class="post-card-tags">{{primary_tag.name}}</span>
+                {{/if}}
                 <h2 class="post-card-title">{{title}}</h2>
             </header>
 
@@ -52,9 +55,6 @@
             </ul>
 
             <span class="reading-time">{{reading_time}}</span>
-                {{#if primary_tag}}
-                    <span class="post-card-tags">{{primary_tag.name}}</span>
-                {{/if}}
 
         </footer>
 
