@@ -11,11 +11,13 @@ call plug#begin('~/_vim/plugged')
 
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+let g:NERDTreeWinPos = "right"
 
 " Themes
 " Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
+let g:solarized_contrast="normal"
 Plug 'morhetz/gruvbox'
 
 " Git Plugins
@@ -32,6 +34,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 
 " Language
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'hail2u/vim-css3-syntax'
 
