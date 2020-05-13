@@ -123,7 +123,7 @@ View macro: "xp
 E.g. of a complex macro. Surround entire function with if check:
 >iB?{oif(true){%O}
 
-^M is <CR> and ^[ is <ESC>
+    ^M is <CR> and ^[ is <ESC>
 To input them in insert mode, press Ctrl-v and the esc or enter key. The ctrl-v
 inserts the next non-digit literally. See :help i\_CTRL-V
 In Windows, use Ctrl-q instead of Ctrl-v
@@ -143,6 +143,10 @@ There are two other modes not of much use. Read about them [here][43]
 Make regexp lazy with `\{-}`. E.g. `reg.\{-}test` matches the upto the first "test"
 in the string "regexptesthuhatestlala" while `reg.*test` matches upto the
 second. See :h non-greedy for more.
+
+### Copy current file full path to var/clipboard
+
+    let @*=expand("%:p")
 
 --------------------------------------------------------------------------------
 
