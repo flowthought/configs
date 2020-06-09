@@ -47,6 +47,16 @@
                 "acrylicOpacity": 0.5
             },
             {
+                // Make changes here to the powershell.exe profile.
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "hidden": false,
+                "colorScheme": "Campbell Powershell",
+                "useAcrylic": true,
+                "acrylicOpacity": 0.5
+            },
+            {
                 "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
                 "hidden": false,
                 "name": "Ubuntu-18.04",
@@ -57,12 +67,12 @@
                 "acrylicOpacity": 0.5
             },
             {
-                // Make changes here to the powershell.exe profile.
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "name": "Windows PowerShell",
-                "commandline": "powershell.exe",
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
                 "hidden": false,
-                "colorScheme": "Campbell Powershell",
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme": "Solarized Dark",
+                "startingDirectory" : "//wsl$/Ubuntu-20.04/home/flowthought",
                 "useAcrylic": true,
                 "acrylicOpacity": 0.5
             },
