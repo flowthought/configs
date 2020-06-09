@@ -157,6 +157,7 @@ nnoremap <leader>f :find<space>
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
+nnoremap <leader>ov :e %<.cc<CR>
 nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>on :new <bar> only <CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
