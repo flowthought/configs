@@ -68,6 +68,7 @@ specify exclusion patterns.
     $ git branch -d <branch_name> # Use -D if branch has not been merged locally
 
 E.g. 
+
     $ git branch -d user/katapas/gutterpan # Use -D if branch has not been merged locally
     $ git branch -rd origin/user/katapas/gutterpan
     $ git push origin --delete user/katapas/gutterpan
@@ -77,6 +78,7 @@ To propagate this change:
     $ git fetch --all --prune
 
 Delete all remote tracking branches (even if they still exist on the server)
+
     $ git branch -r | xargs git branch -rd
 
 ### Test for ancestor commit
@@ -88,8 +90,8 @@ Delete all remote tracking branches (even if they still exist on the server)
 
 Push local branch into non-upstream remote. Works when remote is an ancestor of
 local.
-    $ git push origin local:remote
 
+    $ git push origin local:remote
 
 ### [Rename branch][15]
 
@@ -113,8 +115,9 @@ Shorthands:
 Set <currentbranch>'s upstream: $ git branch -u origin/<currentbranch>
 
 Descriptions:
-    git branch --edit-description topic   # Add description to branch named 'topic':
-    git config branch.topic.description   # View branch description
+
+    $ git branch --edit-description topic   # Add description to branch named 'topic':
+    $ git config branch.topic.description   # View branch description
 
 ### [Reset refs][34]
 
@@ -124,42 +127,46 @@ If you want to avoid the checkout, you can do:
     $ git branch -f branch-name new-tip-commit
 
 For arbitrary refs:
+
     $ git update-ref -m "Reset <ref> to new commit" <ref> <commit>
-where <ref> takes a form similar to refs/heads/branch, etc.
+
+where `<ref>` takes a form similar to refs/heads/branch, etc.
 
 
 ### [Submodule update][16]
 
  -  With version 1.9 of Git and later, you can even download the submodules simultaneously:
 
-        git clone --recursive -j8 git://github.com/foo/bar.git
-        cd bar
+        $ git clone --recursive -j8 git://github.com/foo/bar.git
+        $ cd bar
 
-    Editor's note: simultaneously in this case means: in parallel; that is, -j8
+    Simultaneously in this case means: in parallel; that is, -j8
     is an optional performance optimization that fetches up to 8 submodules at a
     time in parallel - see man git-clone.
 
  -  With version 1.6.5 of Git and later, you can use:
 
-        git clone --recursive git://github.com/foo/bar.git
-        cd bar
+        $ git clone --recursive git://github.com/foo/bar.git
+        $ cd bar
 
  -  For already cloned repos, or older Git versions, just use:
 
-        git clone git://github.com/foo/bar.git
-        cd bar
-        git submodule update --init --recursive
+        $ git clone git://github.com/foo/bar.git
+        $ cd bar
+        $ git submodule update --init --recursive
 
 ### Fix accidental adds
 
-git update-index --assume-unchanged <file>
-git update-index --no-assume-unchanged <file>
+    $ git update-index --assume-unchanged <file>
+    $ git update-index --no-assume-unchanged <file>
 
 ### Config
 Show all config values and their originating files
+
     $ git config --list --show-origin   
 
 Show values specific to file:
+
     $ git config --list --local     # .git/config
     $ git config --list --global    # ~/.gitconfig
     $ git config --list --system    # /etc/gitconfig (Arch)
@@ -168,11 +175,11 @@ Excludes file: .git/info/exclude
 
 ### Clean working directory
 
-  $ git clean -n  // Dry run
-  $ git clean -f  // Delete files
-  $ git clean -fd // Delete dirs
-  $ git clean -fx // Remove ignored and non-ignored files
-  $ git clean -fX // Remove ignored files
+    $ git clean -n  // Dry run
+    $ git clean -f  // Delete files
+    $ git clean -fd // Delete dirs
+    $ git clean -fx // Remove ignored and non-ignored files
+    $ git clean -fX // Remove ignored files
 
 ### Advanced Traversal
 
@@ -182,16 +189,17 @@ Excludes file: .git/info/exclude
 
 ### [Git Bisect][11]
 
- $ git checkout _sha1_  // Compile, test see if good or bad.
- $ git checkout _sha2_  // Repeat
- $ git bisect start
- $ git bisect _sha1_ good   // For e.g.
- $ git bisect _sha2_ bad    // For e.g.
+    $ git checkout _sha1_  // Compile, test see if good or bad.
+    $ git checkout _sha2_  // Repeat
+    $ git bisect start
+    $ git bisect _sha1_ good   // For e.g.
+    $ git bisect _sha2_ bad    // For e.g.
 
 Git will now find the midpoint and checkout your HEAD there. It will update you
 on the number of iterations remaining. Do your testing on the checked out
 location and label it similar to above:
- $ git bisect _midpoint_ good   // Or bad
+
+    $ git bisect _midpoint_ good   // Or bad
 
 ### Garbage Collection
 
@@ -214,11 +222,11 @@ Force garbage collection
 ## Script Helpers (Git 103)
 
 Get name of current branch
-  $ git rev-parse --symbolic-full-name --abbrev-ref HEAD
+    $ git rev-parse --symbolic-full-name --abbrev-ref HEAD
 
 Get git root folder
-  $ git rev-parse --show-toplevel # Follows symlinks. Returns "~/repos/notes"
-  $ git rev-parse --show-cdup     # Returns relative path (../../) to current
+    $ git rev-parse --show-toplevel # Follows symlinks. Returns "~/repos/notes"
+    $ git rev-parse --show-cdup     # Returns relative path (../../) to current
 
 ## Chromium
 
