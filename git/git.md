@@ -222,9 +222,11 @@ Force garbage collection
 ## Script Helpers (Git 103)
 
 Get name of current branch
+
     $ git rev-parse --symbolic-full-name --abbrev-ref HEAD
 
 Get git root folder
+
     $ git rev-parse --show-toplevel # Follows symlinks. Returns "~/repos/notes"
     $ git rev-parse --show-cdup     # Returns relative path (../../) to current
 
