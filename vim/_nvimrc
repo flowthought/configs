@@ -277,7 +277,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 " Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
 " Enable powerline fonts for cool arrow effects in statusbar
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 " Disable tab type display like [tabs], [buffers]
 let g:airline#extensions#tabline#show_tab_type = 0
 " Turn this on if you use hjkl too much for motions
@@ -298,3 +298,7 @@ nnoremap <leader>m :CtrlPMRU<CR>
 if !empty(glob("~/_wvimrc"))
     source ~/_wvimrc
 endif
+
+" Neovim
+let g:neovide_fullscreen=v:true
+" set guifont=Droid_Sans_Mono_Dotted_for_Powe:h11:cANSI:qDRAFT
