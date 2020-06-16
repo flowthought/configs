@@ -69,9 +69,9 @@ specify exclusion patterns.
 
 E.g. 
 
-    $ git branch -d user/katapas/gutterpan # Use -D if branch has not been merged locally
-    $ git branch -rd origin/user/katapas/gutterpan
-    $ git push origin --delete user/katapas/gutterpan
+    $ git branch -d feature         # Use -D if branch has not been merged locally
+    $ git branch -rd origin/feature
+    $ git push origin --delete feature
 
 To propagate this change:
 
