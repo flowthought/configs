@@ -17,6 +17,7 @@ The most fun I've had with a text editor.
 - [Using][15] [CTags][18]
 - [Regex/Pattern Reference][16]
 - [Searching within files][17]
+- [Search and replace in multiple buffers][43]
 - [Fuzzy Search][19]: ctrlp and ag
 - [Vimdiff][20] within editor
 - [The Silver Searcher][21] integration
@@ -123,7 +124,7 @@ View macro: "xp
 E.g. of a complex macro. Surround entire function with if check:
 >iB?{oif(true){%O}
 
-    ^M is <CR> and ^[ is <ESC>
+^M is <CR> and ^[ is <ESC>
 To input them in insert mode, press Ctrl-v and the esc or enter key. The ctrl-v
 inserts the next non-digit literally. See :help i\_CTRL-V
 In Windows, use Ctrl-q instead of Ctrl-v
@@ -131,22 +132,15 @@ In Windows, use Ctrl-q instead of Ctrl-v
 Read :h eol and :h fixeol to understand behavior regarding EOLs at the end of
 files.
 
-### Regexp
+## Filename Modifiers
+:h %:p
 
-Very Magic: Makes all special characters have special meaning. Hence they need
-to be escaped. Activated with \v
+## Global
 
-Very Nomagic: Makes all special characters literal. Activated with \V.
+Delete all lines matching pattern "amos"
+:g/amos/d
 
-There are two other modes not of much use. Read about them [here][43]
-
-Make regexp lazy with `\{-}`. E.g. `reg.\{-}test` matches the upto the first "test"
-in the string "regexptesthuhatestlala" while `reg.*test` matches upto the
-second. See :h non-greedy for more.
-
-### Copy current file full path to var/clipboard
-
-    let @*=expand("%:p")
+[Copy search matches][44]
 
 --------------------------------------------------------------------------------
 
@@ -192,4 +186,5 @@ second. See :h non-greedy for more.
 [40]: http://vim.wikia.com/wiki/Encryption
 [41]: https://vi.stackexchange.com/questions/9455/why-should-i-use-augroup
 [42]: http://learnvimscriptthehardway.stevelosh.com/chapters/14.html 
-[43]: http://andrewradev.com/2011/05/08/vim-regexes/
+[43]: https://vim.fandom.com/wiki/Search_and_replace_in_multiple_buffers
+[44]: https://vim.fandom.com/wiki/Copy_search_matches
