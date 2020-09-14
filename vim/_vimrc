@@ -32,6 +32,8 @@ Plug 'tpope/vim-surround'
 " Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " Language
 Plug 'rust-lang/rust.vim'
@@ -46,7 +48,8 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
-" When vim-airline is enabled, it shows the mode in the status bar. Disabling default mode indicator in this case
+" When vim-airline is enabled, it shows the mode in the status bar. Disabling
+" default mode indicator in this case
 set noshowmode
 
 " Nerd Tree show
@@ -287,6 +290,11 @@ let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <leader>b :b 
 nnoremap <leader>B :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
+
+" Writing
+let g:goyo_height = 37
+nnoremap <leader>gg :Goyo<CR>
+nnoremap <leader>ll :Limelight!!<CR>
 
 " Load machine specific options
 if !empty(glob("~/_wvimrc"))

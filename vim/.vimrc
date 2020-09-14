@@ -33,6 +33,8 @@ Plug 'tpope/vim-surround'
 " Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " Language
 Plug 'rust-lang/rust.vim'
@@ -196,7 +198,7 @@ nnoremap <leader>w :w<CR>
 
 " Search for word under cursor. Use appropriate shortcut
 nnoremap <leader>lw :execute 'Lookup '.expand('<cword>').' '.getcwd()
-nnoremap <leader>ll :Lookup<space>
+" nnoremap <leader>ll :Lookup<space>
 nnoremap [q :cp<CR>
 nnoremap ]q :cn<CR>
 
@@ -270,8 +272,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 " Disable tab type display like [tabs], [buffers]
 let g:airline#extensions#tabline#show_tab_type = 0
-" Turn this on if you use hjkl too much for motions
-" let g:hardtime_default_on = 0
 
 " Ctrlp: Search for a root marker upwards from current working directory
 let g:ctrlp_working_path_mode = 'rw'
@@ -282,6 +282,11 @@ let g:ctrlp_clear_cache_on_exit = 0
 "nnoremap <leader>b :CtrlPBuffer<CR> Disabling because it switches tabs
 nnoremap <leader>b :b 
 nnoremap <leader>m :CtrlPMRU<CR>
+
+" Writing
+let g:goyo_height = 37
+nnoremap <leader>gg :Goyo<CR>
+nnoremap <leader>ll :Limelight!!<CR>
 
 " Load machine specific options
 if !empty(glob("~/.lvimrc"))
