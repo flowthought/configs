@@ -13,12 +13,14 @@ call plug#begin('~/.vim/plugged')
 
 " NERDtree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+let g:NERDTreeWinPos = "right"
 
 " Themes
 " Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
@@ -26,14 +28,14 @@ Plug 'airblade/vim-gitgutter'
 
 " Extensions
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 
 " Language
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml'
 Plug 'hail2u/vim-css3-syntax'
 
@@ -73,7 +75,8 @@ set backspace=indent,eol,start
 " Tilde as operator
 " set tildeop
 
-" A tab width is equivalent to 4 spaces
+" Tabs as four spaces
+" show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
@@ -118,9 +121,11 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " set wildignore+=node_modules/*,bower_components/*
 
 " For gitgutter to update quicker
-set updatetime=750
+set updatetime=1000
 
 " Frequent personal shortcuts (mostly leader based)
+" ------------------------------------------------
+
 let mapleader = "\<Space>"
 
 " Code search and lookup options
@@ -149,6 +154,7 @@ nnoremap <leader>f :find<space>
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
+nnoremap <leader>ov :e %<.cc<CR>
 nnoremap <leader>oo :e! %<CR>
 nnoremap <leader>on :new <bar> only <CR>
 nnoremap <leader>vv :e $MYVIMRC<CR>
@@ -260,10 +266,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 " Simplify file names in tab headers
 let g:airline#extensions#tabline#fnamemod = ':t'
-" Disable the additional [tabs], [buffers] markers
-let g:airline#extensions#tabline#show_tab_type = 0
 " Enable powerline fonts for cool arrow effects in statusbar
 let g:airline_powerline_fonts = 1
+" Disable tab type display like [tabs], [buffers]
+let g:airline#extensions#tabline#show_tab_type = 0
 " Turn this on if you use hjkl too much for motions
 " let g:hardtime_default_on = 0
 
