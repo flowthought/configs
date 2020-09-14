@@ -1,5 +1,8 @@
 " Set font and color scheme
-set guifont=Droid_Sans_Mono_Dotted_for_Powe:h13:cANSI:qDRAFT
+" set guifont=Droid_Sans_Mono_Dotted_for_Powe:h13:cANSI:qDRAFT
+set guifont=Victor_Mono:h12:cANSI:qDRAFT
+" colorscheme molokai
+colorscheme gruvbox
 
 " Hide menu and tool bars[1]. See :help guioptions
 set guioptions -=m 

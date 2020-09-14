@@ -19,6 +19,7 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 let g:solarized_contrast="normal"
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
@@ -26,7 +27,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Extensions
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'takac/vim-hardtime'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 " Plug 'justinmk/vim-sneak'
@@ -52,8 +52,6 @@ set noshowmode
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
 
-colorscheme molokai
-" colorscheme gruvbox
 filetype plugin indent on
 syntax on
 set encoding=utf-8
