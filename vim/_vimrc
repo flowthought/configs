@@ -251,7 +251,7 @@ augroup filepref
     autocmd!
     autocmd FileType markdown,py setlocal textwidth=80
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 textwidth=80 colorcolumn=+1
-    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s 
+    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
     autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.xaml setfiletype xml
 augroup END
@@ -288,7 +288,7 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.git', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-nnoremap <leader>b :b 
+nnoremap <leader>b :b
 nnoremap <leader>B :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 
