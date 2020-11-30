@@ -250,7 +250,8 @@ onoremap gk k
 augroup filepref
     autocmd!
     autocmd FileType markdown,py setlocal textwidth=80
-    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 textwidth=80 colorcolumn=+1
+    autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s 
     autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.xaml setfiletype xml
 augroup END
