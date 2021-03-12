@@ -20,6 +20,7 @@ Plug 'altercation/vim-colors-solarized'
 let g:solarized_contrast="normal"
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
+Plug 'humanoid-colors/vim-humanoid-colorscheme'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
@@ -29,6 +30,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
@@ -154,7 +156,7 @@ nnoremap Y y$
 
 " Targeted edits
 nnoremap <leader>e :e<space>
-nnoremap <leader>f :find<space>
+nnoremap <leader>f :FZF<CR>
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
