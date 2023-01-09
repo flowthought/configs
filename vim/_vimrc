@@ -36,6 +36,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'beautify-web/js-beautify'
 
 " Language
 Plug 'rust-lang/rust.vim'
@@ -129,6 +130,9 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " For gitgutter to update quicker
 set updatetime=1000
 
+" Vertical line at textwidth + 1
+"set colorcolumn=+1
+
 " Frequent personal shortcuts (mostly leader based)
 " ------------------------------------------------
 
@@ -156,7 +160,7 @@ nnoremap Y y$
 
 " Targeted edits
 nnoremap <leader>e :e<space>
-nnoremap <leader>f :FZF<CR>
+nnoremap <leader>f :FZF
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
@@ -252,11 +256,30 @@ onoremap gk k
 augroup filepref
     autocmd!
     autocmd FileType markdown,py setlocal textwidth=80
-    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 textwidth=80 colorcolumn=+1
+    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 textwidth=80
     autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
     autocmd FileType html,css,hs setlocal shiftwidth=2 tabstop=2
     autocmd BufNewFile,BufRead *.xaml setfiletype xml
 augroup END
+
+augroup fileext
+    autocmd!
+    autocmd BufNew,BufEnter *.gn setlocal shiftwidth=2 tabstop=2 textwidth=80
+augroup END
+
+augroup beautify
+    autocmd FileType javascript noremap <buffer> <c-S-f> :call JsBeautify()<cr>
+    autocmd FileType json noremap <buffer> <c-S-f> :call JsonBeautify()<cr>
+    autocmd FileType jsx noremap <buffer> <c-S-f> :call JsxBeautify()<cr>
+    autocmd FileType html noremap <buffer> <c-S-f> :call HtmlBeautify()<cr>
+    autocmd FileType css noremap <buffer> <c-S-f> :call CSSBeautify()<cr>
+    autocmd FileType javascript vnoremap <buffer> <c-S-f> :call RangeJsBeautify()<cr>
+    autocmd FileType json vnoremap <buffer> <c-S-f> :call RangeJsonBeautify()<cr>
+    autocmd FileType jsx vnoremap <buffer> <c-S-f> :call RangeJsxBeautify()<cr>
+    autocmd FileType html vnoremap <buffer> <c-S-f> :call RangeHtmlBeautify()<cr>
+    autocmd FileType css vnoremap <buffer> <c-S-f> :call RangeCSSBeautify()<cr>
+augroup END
+
 
 " Allows % to be used to match xml start/end tags
 runtime macros/matchit.vim
@@ -290,7 +313,8 @@ let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_root_markers = ['tags', '.ctrlproot', '.git', '.stfolder']
 " Store cache across sessions on disk for faster loading times
 let g:ctrlp_clear_cache_on_exit = 0
-nnoremap <leader>b :b
+let g:ctrlp_working_path_mode = ''
+nnoremap <leader>b :b 
 nnoremap <leader>B :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 
