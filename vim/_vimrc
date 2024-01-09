@@ -19,18 +19,27 @@ Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
 let g:solarized_contrast="normal"
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'humanoid-colors/vim-humanoid-colorscheme'
+Plug 'joshdick/onedark.vim'
+Plug 'nanotech/jellybeans.vim'
 
 " Git Plugins
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Gitgutter is really slow, blocks UI.
+" Plug 'airblade/vim-gitgutter'
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'tag': 'legacy' }
+endif
 
 " Extensions
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Plug 'justinmk/vim-sneak'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
@@ -54,6 +63,9 @@ call plug#end()
 " When vim-airline is enabled, it shows the mode in the status bar. Disabling
 " default mode indicator in this case
 set noshowmode
+
+" Use unix file format by default
+set fileformat=unix
 
 " Nerd Tree show
 map <C-n> :NERDTreeToggle<CR>
@@ -127,11 +139,11 @@ set wildmode=full
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.pdf,*.swp
 " set wildignore+=node_modules/*,bower_components/*
 
-" For gitgutter to update quicker
-set updatetime=1000
+" For gitgutter/signify to update quicker
+set updatetime=100
 
-" Vertical line at textwidth + 1
-"set colorcolumn=+1
+" Stop autocomplete from scanning includes
+setglobal complete-=i
 
 " Frequent personal shortcuts (mostly leader based)
 " ------------------------------------------------
@@ -147,7 +159,10 @@ if executable('ag')
 
   " Use ag for ctrlp file listing
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  autocmd VimEnter * echo 'ag not found. CtrlP will use default user command'
 endif
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
 " Customized grep command to bypass output window and show quickfix list
 command! -nargs=+ Lookup execute 'silent grep! <args>' | copen
@@ -160,7 +175,7 @@ nnoremap Y y$
 
 " Targeted edits
 nnoremap <leader>e :e<space>
-nnoremap <leader>f :FZF
+nnoremap <leader>f :FZF<CR>
 nnoremap <leader>or :e ./**/*
 nnoremap <leader>oh :e %<.h<CR>
 nnoremap <leader>oc :e %<.cpp<CR>
@@ -197,6 +212,7 @@ nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
 nnoremap <leader>n :tabnew %<CR>
 nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tp :-1tabnew<CR>
 nnoremap <leader>td :tabclose<CR>
 nnoremap <leader>to :tabnew<space>
 
@@ -268,6 +284,7 @@ augroup fileext
 augroup END
 
 augroup beautify
+    autocmd FileType javascript noremap <buffer> <c-S-f> :call JsBeautify()<cr>
     autocmd FileType javascript noremap <buffer> <c-S-f> :call JsBeautify()<cr>
     autocmd FileType json noremap <buffer> <c-S-f> :call JsonBeautify()<cr>
     autocmd FileType jsx noremap <buffer> <c-S-f> :call JsxBeautify()<cr>
