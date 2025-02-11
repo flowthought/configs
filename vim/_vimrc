@@ -99,6 +99,9 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
+" Disable comment leaders
+set formatoptions-=ro
+
 " Disable all bell sounds
 set belloff=all
 
@@ -153,14 +156,18 @@ let mapleader = "\<Space>"
 " Code search and lookup options
 " Search for tags file in all ancestors
 set tags=./tags;
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
+" if executable('ag')
+"   " Use Ag over Grep
+"   set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep\ $* grepformat=%f:%l:%c:%m
 
-  " Use ag for ctrlp file listing
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   " Use ag for ctrlp file listing
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" else
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 else
-  autocmd VimEnter * echo 'ag not found. CtrlP will use default user command'
+  autocmd VimEnter * echo 'rg not found. CtrlP will use default user command'
 endif
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 
@@ -334,6 +341,10 @@ let g:ctrlp_working_path_mode = ''
 nnoremap <leader>b :b 
 nnoremap <leader>B :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
+
+" Custom dev shortcuts
+let @e="`<O#if MICROSOFT_EDGE_BUILDjk`>o#endif  // MICROSOFT_EDGE_BUILDjk"
+let @c="`<O#if EXCLUDED_FROM_EDGE`>o#endif  // EXCLUDED_FROM_EDGEjk"
 
 " Writing
 let g:goyo_height = 37
