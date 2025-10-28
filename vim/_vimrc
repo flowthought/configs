@@ -317,6 +317,9 @@ nnoremap <leader>gw :Gwrite<CR>
 " Clear fugitive buffers automatically
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" Open fzf in bottom split instead of floating window.
+let g:fzf_layout = { 'down': '30%' }
+
 " Enable tabline for vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " Use tabs and buffers as they are meant to be used
