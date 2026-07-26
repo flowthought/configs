@@ -32,8 +32,26 @@ require("lazy").setup({
   "rust-lang/rust.vim",
   "hail2u/vim-css3-syntax",
   -- Statusline
-  "vim-airline/vim-airline",
-  "vim-airline/vim-airline-themes",
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      options = {
+        theme = "auto",
+      },
+      tabline = {
+        lualine_a = {
+          { "tabs", mode = 1 },
+        },
+      },
+      extensions = {
+        "fugitive",
+        "nerdtree",
+      },
+    },
+  },
 })
 
 -- ========== Options ==========
@@ -232,13 +250,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function() vim.opt_local.bufhidden = "delete" end,
 })
 
--- ========== Airline ==========
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g["airline#extensions#tabline#show_buffers"] = 0
-vim.g["airline#extensions#tabline#fnamemod"] = ":t"
-vim.g.airline_powerline_fonts = 1
-vim.g["airline#extensions#tabline#show_tab_type"] = 0
-
 -- ========== CtrlP ==========
 vim.g.ctrlp_working_path_mode = "rw"
 vim.g.ctrlp_root_markers = { "tags", ".ctrlproot", ".git", ".stfolder" }
@@ -265,6 +276,6 @@ end
 if vim.g.neovide then
   -- Better macOS/Windows clipboard integration is automatic; nothing required.
   -- Set a comfortable font / scale if you like:
-  vim.o.guifont = "Menlo:h20:w0.3"
+  vim.o.guifont = "Monaspace Neon NF:h20"
   -- vim.g.neovide_scale_factor = 1.0
 end
