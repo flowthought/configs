@@ -265,8 +265,6 @@ end
 if vim.g.neovide then
   -- Better macOS/Windows clipboard integration is automatic; nothing required.
   -- Set a comfortable font / scale if you like:
-  -- vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+  vim.o.guifont = "Menlo:h20:w0.3"
   -- vim.g.neovide_scale_factor = 1.0
 end
-
-vim.opt.guifont="Victor\\ Mono:h14"
