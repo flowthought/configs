@@ -255,4 +255,8 @@ if vim.g.neovide then
   -- vim.o.guifont = "Monaspace Neon NF:h20"
   vim.o.guifont = "VictorMono Nerd Font:h20"
   -- vim.g.neovide_scale_factor = 1.0
+  -- Cut down trails and animations. Defaults: 1.0, 0.15, 0.3
+  vim.g.neovide_cursor_trail_size = 0.2
+  vim.g.neovide_cursor_animation_length = 0.1
+  -- vim.g.neovide_scroll_animation_length = 0.1
 end
