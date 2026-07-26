@@ -16,7 +16,15 @@ require("lazy").setup({
   -- Themes
   "tomasr/molokai",
   "morhetz/gruvbox",
-  "humanoid-colors/vim-humanoid-colorscheme",
+  {
+    "humanoid-colors/vim-humanoid-colorscheme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.opt.background = "dark"
+      vim.cmd.colorscheme("humanoid")
+    end,
+  },
   -- Git
   "tpope/vim-fugitive",
   "airblade/vim-gitgutter",
@@ -43,7 +51,18 @@ require("lazy").setup({
       },
       tabline = {
         lualine_a = {
-          { "tabs", mode = 1 },
+          {
+            "tabs",
+            mode = 1,
+            component_separators = {
+              left = "",
+              right = "",
+            },
+            tabs_color = {
+              active = "lualine_a_normal",
+              inactive = "TabLine",
+            },
+          },
         },
       },
       extensions = {
@@ -263,21 +282,11 @@ vim.g.goyo_height = 37
 map("n", "<leader>gg", ":Goyo<CR>", opts)
 map("n", "<leader>ll", ":Limelight!!<CR>", opts)
 
--- ========== Machine-specific override ==========
--- Mirrors: if !empty(glob("~/_wvimrc")) | source ~/_wvimrc | endif
-do
-  local path = vim.fn.expand("~/_wvimrc")
-  if vim.fn.empty(vim.fn.glob(path)) == 0 then
-    vim.cmd("source " .. path)
-  end
-end
-
 -- ========== Neovide niceties (optional, safe no-op elsewhere) ==========
 if vim.g.neovide then
   -- Better macOS/Windows clipboard integration is automatic; nothing required.
   -- Set a comfortable font / scale if you like:
   -- vim.o.guifont = "Monaspace Neon NF:h20"
   vim.o.guifont = "VictorMono Nerd Font:h20"
-"
   -- vim.g.neovide_scale_factor = 1.0
 end
