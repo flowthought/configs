@@ -17,14 +17,15 @@ require("lazy").setup({
   "tomasr/molokai",
   "morhetz/gruvbox",
   {
-    "humanoid-colors/vim-humanoid-colorscheme",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       vim.opt.background = "dark"
-      vim.cmd.colorscheme("humanoid")
+      vim.cmd.colorscheme("kanagawa-wave")
     end,
   },
+  "humanoid-colors/vim-humanoid-colorscheme",
   -- Git
   "tpope/vim-fugitive",
   "airblade/vim-gitgutter",
