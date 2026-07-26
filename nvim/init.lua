@@ -31,15 +31,11 @@ require("lazy").setup({
   "airblade/vim-gitgutter",
   -- Extensions
   "ctrlpvim/ctrlp.vim",
-  "tpope/vim-commentary",
   "tpope/vim-surround",
   "godlygeek/tabular",
   "tpope/vim-repeat",
   "junegunn/limelight.vim",
   "junegunn/goyo.vim",
-  -- Languages
-  "rust-lang/rust.vim",
-  "hail2u/vim-css3-syntax",
   -- Statusline
   {
     "nvim-lualine/lualine.nvim",
@@ -47,9 +43,6 @@ require("lazy").setup({
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      options = {
-        theme = "auto",
-      },
       tabline = {
         lualine_a = {
           {
@@ -77,32 +70,19 @@ require("lazy").setup({
 -- ========== Options ==========
 vim.opt.showmode = false                -- noshowmode
 vim.opt.number = true
-vim.opt.laststatus = 2
 vim.opt.clipboard = "unnamed"           -- use system clipboard (Linux users may prefer 'unnamedplus')
-vim.opt.backspace = "indent,eol,start"
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.belloff = "all"
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
 vim.opt.tabpagemax = 15
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.hidden = true
 vim.opt.confirm = true
-vim.opt.ruler = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.wildmenu = true
-vim.opt.wildmode = "full"
 vim.opt.wildignore:append({ "*.bmp","*.gif","*.ico","*.jpg","*.png","*.pdf","*.swp" })
 vim.opt.updatetime = 1000
 vim.cmd("filetype plugin indent on")
-vim.cmd("syntax on")
-
--- Matchit (like `runtime macros/matchit.vim`)
-vim.cmd("packadd matchit")
 
 -- ========== Keymaps ==========
 local map = vim.keymap.set
@@ -121,12 +101,9 @@ map("i", "<F7>", "<C-o>:set relativenumber!<CR>", opts)
 -- Toggle search highlight (F2)
 map("n", "<F2>", ":set hlsearch!<CR>", opts)
 
--- Make Y behave like C/D
-map("n", "Y", "y$", opts)
-
 -- Leader shortcuts
 map("n", "<leader>e", ":e ", { silent = false })
-map("n", "<leader>f", ":FZF<CR>", opts)
+map("n", "<leader>f", ":CtrlP<CR>", opts)
 map("n", "<leader>or", ":e ./**/*", { silent = false })
 map("n", "<leader>oh", ":e %<.h<CR>", opts)
 map("n", "<leader>oc", ":e %<.cpp<CR>", opts)
@@ -172,14 +149,11 @@ map("n", "<leader>w", ":w<CR>", opts)
 map("n", "<leader>lw", function()
   vim.cmd(("Lookup %s %s"):format(vim.fn.expand("<cword>"), vim.fn.getcwd()))
 end, opts)
-map("n", "<leader>ll", ":Lookup ", { silent = false })
-map("n", "[q", ":cp<CR>", opts)
-map("n", "]q", ":cn<CR>", opts)
+map("n", "<leader>lL", ":Lookup ", { silent = false })
 
 -- Use '.' as a verb in visual mode; repeat last :substitute with flags
 map("v", ".", [[:'<,'>normal.<CR>]], opts)
 map("v", "&", ":&&<CR>", opts)
-map("n", "&", ":&&<CR>", opts)
 
 -- Move by display lines
 for _, m in ipairs({ "n", "v", "o" }) do
@@ -211,12 +185,9 @@ end, { expr = true })
 
 -- ripgrep integration for :grep and CtrlP
 if vim.fn.executable("rg") == 1 then
-  -- Use ripgrep for :grep
-  vim.opt.grepprg = "rg --color=never"
-
   -- Use ripgrep for CtrlP's file listing
   -- (%s is substituted by CtrlP)
-  vim.g.ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  vim.g.ctrlp_user_command = "rg --files --color=never %s"
 else
   -- Notify once on startup if rg is missing
   vim.api.nvim_create_autocmd("VimEnter", {
@@ -240,23 +211,18 @@ end, { nargs = "+" })
 local filepref = vim.api.nvim_create_augroup("filepref", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = filepref,
-  pattern = { "markdown", "py" },
+  pattern = { "markdown", "python" },
   callback = function() vim.opt_local.textwidth = 80; vim.opt_local.fileformat = "unix" end,
 })
 vim.api.nvim_create_autocmd("FileType", {
   group = filepref,
-  pattern = { "cpp" },
-  callback = function() vim.opt_local.shiftwidth = 2; vim.opt_local.tabstop = 2; vim.opt_local.textwidth = 80 end,
+  pattern = "cpp",
+  callback = function() vim.opt_local.textwidth = 80 end,
 })
 vim.api.nvim_create_autocmd("FileType", {
   group = filepref,
-  pattern = { "c", "cpp", "cs", "java" },
+  pattern = "c",
   callback = function() vim.opt_local.commentstring = "// %s" end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  group = filepref,
-  pattern = { "html", "css", "hs" },
-  callback = function() vim.opt_local.shiftwidth = 2; vim.opt_local.tabstop = 2 end,
 })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   group = filepref,
@@ -272,8 +238,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- ========== CtrlP ==========
 vim.g.ctrlp_working_path_mode = "rw"
-vim.g.ctrlp_root_markers = { "tags", ".ctrlproot", ".git", ".stfolder" }
-vim.g.ctrlp_clear_cache_on_exit = 0
+vim.g.ctrlp_root_markers = { "tags", ".ctrlproot", ".stfolder" }
 -- (Your <leader>b mapping above opens :b for buffer number; keep extras)
 vim.keymap.set("n", "<leader>B", ":CtrlPBuffer<CR>", opts)
 vim.keymap.set("n", "<leader>M", ":CtrlPMRU<CR>", opts)
