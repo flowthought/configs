@@ -252,8 +252,7 @@ map("n", "<leader>ll", ":Limelight!!<CR>", opts)
 if vim.g.neovide then
   -- Better macOS/Windows clipboard integration is automatic; nothing required.
   -- Set a comfortable font / scale if you like:
-  -- vim.o.guifont = "Monaspace Neon NF:h20"
-  vim.o.guifont = "VictorMono Nerd Font:h20"
+  -- vim.o.guifont = "VictorMono Nerd Font:h20"
   -- vim.g.neovide_scale_factor = 1.0
   -- Cut down trails and animations. Defaults: 1.0, 0.15, 0.3
   vim.g.neovide_cursor_trail_size = 0.2
