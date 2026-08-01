@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "brightWhite",
+        "backgroundColor": "bgCyan",
+        "bold": false,
+        "rawValue": true
+      },
+      {
+        "id": "bf887588-4ec6-4d67-83b9-a652a45712d3",
+        "type": "thinking-effort",
+        "color": "brightWhite",
+        "backgroundColor": "bgBrightBlack",
+        "rawValue": true
+      },
+      {
+        "id": "3",
+        "type": "context-bar",
+        "color": "brightWhite",
+        "backgroundColor": "bgMagenta",
+        "rawValue": true
+      },
+      {
+        "id": "5",
+        "type": "session-usage",
+        "color": "brightWhite",
+        "backgroundColor": "bgCyan",
+        "rawValue": true
+      },
+      {
+        "id": "458f6439-af34-40c8-a956-1b5b582adb27",
+        "type": "reset-timer",
+        "color": "brightWhite",
+        "backgroundColor": "bgBrightBlack",
+        "rawValue": true
+      },
+      {
+        "id": "7",
+        "type": "weekly-usage",
+        "color": "brightWhite",
+        "backgroundColor": "bgCyan",
+        "rawValue": true
+      },
+      {
+        "id": "0d28ae2e-c25d-4747-9185-f1fe249f4a77",
+        "type": "weekly-reset-timer",
+        "color": "brightWhite",
+        "backgroundColor": "bgBrightBlack",
+        "rawValue": true
+      }
+    ],
+    [
+      {
+        "id": "512696d5-dc17-4895-a2b4-8c9e75413a24",
+        "type": "current-working-dir",
+        "color": "brightWhite",
+        "backgroundColor": "bgBrightBlack",
+        "rawValue": true
+      }
+    ],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultPadding": " ",
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [
+      ""
+    ],
+    "theme": "custom",
+    "autoAlign": false,
+    "continueThemeAcrossLines": false
+  },
+  "installation": {
+    "method": "auto-update",
+    "packageManager": "npm"
+  },
+  "exportedBy": "2.2.27"
+}
