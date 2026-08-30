@@ -36,6 +36,16 @@ require("lazy").setup({
   "tpope/vim-repeat",
   "junegunn/limelight.vim",
   "junegunn/goyo.vim",
+  -- Markdown rendering
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {},
+  },
   -- Statusline
   {
     "nvim-lualine/lualine.nvim",
@@ -82,6 +92,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.wildignore:append({ "*.bmp","*.gif","*.ico","*.jpg","*.png","*.pdf","*.swp" })
 vim.opt.updatetime = 1000
+vim.g.markdown_folding = 1
 vim.cmd("filetype plugin indent on")
 
 -- ========== Keymaps ==========
@@ -211,8 +222,20 @@ end, { nargs = "+" })
 local filepref = vim.api.nvim_create_augroup("filepref", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = filepref,
-  pattern = { "markdown", "python" },
-  callback = function() vim.opt_local.textwidth = 80; vim.opt_local.fileformat = "unix" end,
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.fileformat = "unix"
+    vim.opt_local.foldlevel = 99
+  end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  group = filepref,
+  pattern = "python",
+  callback = function()
+    vim.opt_local.textwidth = 80
+    vim.opt_local.fileformat = "unix"
+  end,
 })
 vim.api.nvim_create_autocmd("FileType", {
   group = filepref,
