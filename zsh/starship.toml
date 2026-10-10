@@ -1,4 +1,4 @@
-format = "$directory$git_branch$git_status$fill$time$cmd_duration\n$character"
+format = "$directory$git_branch$git_status$cmd_duration$fill$time\n$character"
 
 [time]
 disabled = false
@@ -27,4 +27,4 @@ error_symbol = "[❯](bold red)"
 
 [cmd_duration]
 min_time = 2_000
-format = "[$duration](dimmed white) "
+format = "took [$duration](bold cyan) "
