@@ -2,7 +2,7 @@ format = "$directory$git_branch$git_status$fill$time$cmd_duration\n$character"
 
 [time]
 disabled = false
-time_format = "%b %-d · %H:%M"
+time_format = "‹ %b %-d · %H:%M ›"
 format = "[$time](#7AA2F7) "
 
 [fill]
